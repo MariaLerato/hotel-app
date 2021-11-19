@@ -1,8 +1,27 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {View,Text,StyleSheet,TouchableOpacity} from 'react-native'
 import {Input,Icon} from 'react-native-elements'
 
 const SignIn = ({navigation})=>{
+    const [isVisible,setIsVisible] = useState(true)
+
+    const Change = ()=>{
+        setIsVisible(!isVisible);
+    };
+    const PasswordView = ()=>{
+     return(
+        <TouchableOpacity 
+        activeOpacity={0.7}
+        onPress={()=>Change()}
+        >
+        {isVisible ?(
+            <Icon name='eye-slash' type="font-awesome" style={{marginLeft:10}} />
+        ):(
+            <Icon name='eye' type="font-awesome" style={{marginLeft:10}} />
+        )}
+        </TouchableOpacity>
+     )
+    }
     return(
         <>
           <View style={styles.SignInContainer}>
@@ -15,15 +34,16 @@ const SignIn = ({navigation})=>{
                 style={styles.input}
                 leftIcon={<Icon name="envelope-o" type="font-awesome" color='#1C5248' />}
                 />
-                 <Text style={styles.title} onPress={()=>navigation.navigate('reset')}>Password</Text>
+                 <Text style={styles.title} >Password</Text>
                 <Input
                 placeholder=" Your Password"
                 style={styles.input}
                 leftIcon={<Icon name="lock" type="font-awesome" color='#1C5248' />}
-                rightIcon={<Icon name="eye-slash" type="font-awesome" color='#1C5248' />}
+                rightIcon={<PasswordView />}
+                secureTextEntry={isVisible}
                 />
-                <Text style={styles.password}>Forgot Password?</Text>
-                <TouchableOpacity style={styles.touchableOpacity} ><Text style={styles.touchableText}>Sign In</Text></TouchableOpacity>
+                <Text style={styles.password} onPress={()=>navigation.navigate('resetpassword')}>Forgot Password?</Text>
+                <TouchableOpacity style={styles.touchableOpacity} onPress={()=>navigation.navigate('bottomTab')}><Text style={styles.touchableText}>Sign In</Text></TouchableOpacity>
                 <TouchableOpacity style={styles.touchable} onPress={()=>navigation.navigate('SignUp')}><Text style={styles.touchabletext}>Sign Up</Text></TouchableOpacity>
           </View>  
         </>
@@ -39,7 +59,8 @@ const styles = StyleSheet.create({
     Sign:{
         backgroundColor:'#FFFFFF',
         marginTop:'-10%',
-        borderRadius:40,
+        borderTopEndRadius:40,
+        borderTopStartRadius:40,
         flex:1,
         padding:'8%'
     },
@@ -63,8 +84,8 @@ const styles = StyleSheet.create({
     },
     touchableOpacity:{
         backgroundColor:'#06AC8E',
-        height:62,
-        marginTop:'6%',
+        height:60,
+        marginTop:'8%',
         borderRadius:40,
         alignItems:'center',
         justifyContent: 'center',
@@ -86,7 +107,7 @@ const styles = StyleSheet.create({
     },
     touchable:{
         backgroundColor:'#EBE9E9',
-        height:62,
+        height:60,
         marginTop:'5%',
         borderRadius:40,
         alignItems:'center',

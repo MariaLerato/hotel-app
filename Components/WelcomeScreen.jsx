@@ -37,16 +37,16 @@ const styles = StyleSheet.create({
         paddingTop:'2%',
         color:'#1C5248',
         fontWeight:'700',
-        fontSize:30,
+        fontSize:28,
         textAlign:"center",
-        padding:'2%'
+        padding:'3%'
     },
     subtext:{
         color:'#1C5248',
         fontSize:22,
         textAlign:"center",
         padding:'2%',
-        paddingTop:'-2%'
+        marginTop:'-4%'
     },
     touchableOpacity:{
         backgroundColor:'#06AC8E',
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         borderColor:'rgba(0,0,0,.2)',
     },
     touchableText:{
-        fontSize:34,
+        fontSize:30,
         color:'#FFFFFF',
         fontWeight:'700'
     }

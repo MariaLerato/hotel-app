@@ -1,8 +1,27 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {View,Text,StyleSheet,TouchableOpacity} from 'react-native'
 import {Input,Icon} from 'react-native-elements'
 
 const SignUp = ({navigation})=>{
+    const [isVisible,setIsVisible] = useState(true)
+
+    const Change = ()=>{
+        setIsVisible(!isVisible);
+    };
+    const PasswordView = ()=>{
+     return(
+        <TouchableOpacity 
+        activeOpacity={0.7}
+        onPress={()=>Change()}
+        >
+        {isVisible ?(
+            <Icon name='eye-slash' type="font-awesome" style={{marginLeft:10}} />
+        ):(
+            <Icon name='eye' type="font-awesome" style={{marginLeft:10}} />
+        )}
+        </TouchableOpacity>
+     )
+    }
     return(
         <>
           <View style={styles.SignInContainer}>
@@ -15,23 +34,25 @@ const SignUp = ({navigation})=>{
                 style={styles.input}
                 leftIcon={<Icon name="envelope-o" type="font-awesome" color='#1C5248' />}
                 />
-                 <Text style={styles.title} onPress={()=>navigation.navigate('reset')}>Password</Text>
+                 <Text style={styles.title} >Password</Text>
                 <Input
                 placeholder=" Your Password"
                 style={styles.input}
                 leftIcon={<Icon name="lock" type="font-awesome" color='#1C5248' />}
-                rightIcon={<Icon name="eye-slash" type="font-awesome" color='#1C5248' />}
+                rightIcon={<PasswordView />}
+                secureTextEntry={isVisible}
                 />
-                   <Text style={styles.title} onPress={()=>navigation.navigate('reset')}>Password</Text>
+                   <Text style={styles.title}>Confirm Password</Text>
                 <Input
-                placeholder=" Your Password"
+                placeholder=" Re-enter Password"
                 style={styles.input}
                 leftIcon={<Icon name="lock" type="font-awesome" color='#1C5248' />}
-                rightIcon={<Icon name="eye-slash" type="font-awesome" color='#1C5248' />}
+                rightIcon={<PasswordView />}
+                secureTextEntry={isVisible}
                 />
                 <Text>By sigining up you agree to the terms of the service and privacy policy</Text>
-                <TouchableOpacity style={styles.touchableOpacity} ><Text style={styles.touchableText}>Sign In</Text></TouchableOpacity>
-                <TouchableOpacity style={styles.touchable} onPress={()=>navigation.navigate('SignUp')}><Text style={styles.touchabletext}>Sign Up</Text></TouchableOpacity>
+                <TouchableOpacity style={styles.touchableOpacity} ><Text style={styles.touchableText}>Sign Up</Text></TouchableOpacity>
+                <TouchableOpacity style={styles.touchable} onPress={()=>navigation.navigate('SignIn')}><Text style={styles.touchabletext}>Sign In</Text></TouchableOpacity>
           </View>  
         </>
     )
@@ -45,24 +66,26 @@ const styles = StyleSheet.create({
     },
     Sign:{
         backgroundColor:'#FFFFFF',
-        marginTop:'-10%',
-        borderRadius:40,
+        marginTop:'-12%',
+        borderTopEndRadius:40,
+        borderTopStartRadius:40,
         flex:1,
-        padding:'4%'
+        padding:'6%'
     },
     WelcomeText:{
         color:'#FFFFFF',
-        fontSize:48,
+        fontSize:40,
         padding:'4%',
         fontWeight:'700'
     },
     input:{
-
+        marginTop:'-2%'
     },
     title:{
         padding:4,
-        fontSize:24,
-        color:'#1C5248'
+        fontSize:20,
+        color:'#1C5248',
+        marginTop:'-2%'
     },
     password:{
         color:'#06AC8E',
@@ -71,9 +94,9 @@ const styles = StyleSheet.create({
     touchableOpacity:{
         backgroundColor:'#06AC8E',
         height:62,
-     
         borderRadius:40,
         alignItems:'center',
+        marginTop:'3%',
         justifyContent: 'center',
         shadowColor: "#000",
         shadowOffset: {

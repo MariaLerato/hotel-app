@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     },
     subtext:{
         alignSelf:'center',
-        fontSize:35,
+        fontSize:30,
         color:'#858181'
     }
 })
