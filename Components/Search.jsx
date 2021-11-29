@@ -1,11 +1,18 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground, ScrollView } from 'react-native'
 import Info from './info'
 import { Icon } from 'react-native-elements'
 
 const Search = () => {
-    return (
+    const Data = () => {
 
+        return (
+            <>
+
+            </>
+        )
+    }
+    return (
         <>
             <View style={styles.HeaderContainer}>
                 <View>
@@ -25,12 +32,11 @@ const Search = () => {
                                         <Icon name={'bell'} type="font-awesome" size={18} color='white' />
                                     </View>
                                 </View>
-
-
                             </View>
                         )
                     }
                 </View>
+
             </View>
             <View style={styles.container}>
                 <View style={styles.destinationContainer}>
@@ -52,9 +58,55 @@ const Search = () => {
                     </View>
                     <TouchableOpacity style={styles.touchableOpacity}><Text style={styles.touchableText}>Search Hotels</Text></TouchableOpacity>
                 </View>
-                <View>
+                    <ScrollView>
+                    <View style={{ marginTop: '-3%' }} >
                     
-                </View>
+                    <View style={styles.map}>
+                        <Text style={styles.location}>By Location</Text>
+                        <Text style={styles.view}>View All</Text>
+                    </View>
+
+                    <View >
+                        <View style={styles.picContainer}>
+                            <ImageBackground source={require('../assets/sandton.png')} style={{ width: 150, height: 170 }}>
+                                <View style={styles.hotelname}>
+                                    <Text style={styles.loca}>Sandton</Text>
+                                    <Text style={styles.number}>10 Hotels</Text>
+                                </View>
+                            </ImageBackground>
+                            <ImageBackground source={require('../assets/pretoria.png')} style={{ width: 150, height: 170, marginLeft: '10%', borderRadius: 20 }}>
+                                <View style={styles.hotelname}>
+                                    <Text style={styles.loca}>Pretoria</Text>
+                                    <Text style={styles.number}>30 Hotels</Text>
+                                </View>
+                            </ImageBackground>
+                        </View>
+                    </View>
+            </View>
+            <View>
+                <Text style={styles. neartext}>Near You</Text>
+                {
+                    Info.results.map(data=>
+                        <View key={data.id} style={styles.near}>
+                           <View>
+                                <Image source={data.image}/>
+                            </View>
+                            <View>
+                                <Text style={styles.hoteltext}>{data.hotelname}</Text>
+                                <Text style={styles.locationName}>{data.location}</Text>
+                            <View style={styles.nearContainer}>
+                                <Text style={styles.price}>{data.price}/{data.state}</Text>
+                                <View style={{flexDirection:'row'}}>
+                                <Icon name={'star'} type={'font-awesome'} color={'#FAA455'} size={18} />
+                                <Text style={styles.number}>4.9</Text>
+                                </View>
+                            </View>
+                            </View>
+                        </View>
+                        )
+                }
+            </View>
+                    </ScrollView>
             </View>
 
         </>
@@ -68,8 +120,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     Image: {
-        height: 100,
-        width: 100,
+        height: 90,
+        width: 90,
         borderRadius: 50,
         borderWidth: 3,
         borderColor: 'white',
@@ -78,12 +130,12 @@ const styles = StyleSheet.create({
     ImageContainer: {
         display: 'flex',
         flexDirection: 'row',
-        marginTop: '-15%'
+        marginTop: '-30%'
 
     },
     name: {
         color: 'white',
-        marginTop: '8%',
+        marginTop: '4%',
         padding: '2%'
     },
     profilename: {
@@ -97,7 +149,7 @@ const styles = StyleSheet.create({
         fontWeight: '700'
     },
     alarm: {
-        marginTop: '15%',
+        marginTop: '12%',
         marginLeft: '6%'
 
     },
@@ -107,14 +159,13 @@ const styles = StyleSheet.create({
 
     },
     destinationContainer: {
-        marginTop: '-25%',
+        marginTop: '-37%',
         backgroundColor: 'white',
-
         margin: '4%',
         borderRadius: 10
     },
     padding: {
-        padding: '4%'
+        padding: '3%'
     },
     dateContainer: {
         display: 'flex',
@@ -164,12 +215,95 @@ const styles = StyleSheet.create({
         borderBottomStartRadius: 8
     },
     touchableText: {
-        fontSize: 24,
+        fontSize: 22,
         color: '#FFFFFF',
         fontWeight: '700'
 
 
     },
+    map: {
+        display: 'flex',
+        flexDirection: 'row',
+        padding: '1%',
+        justifyContent: 'space-between'
+    },
+    location: {
+        color: '#1C5248',
+        fontSize: 22,
+        fontWeight: '700',
+        fontFamily: 'Roboto'
+
+    },
+    view: {
+        color: '#B2B2B2',
+        fontSize: 19,
+        fontWeight: '700',
+    },
+    picContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        marginLeft: '6%'
+        // justifyContent:'space-between'
+
+    },
+    hotelname: {
+        backgroundColor: 'white',
+        borderRadius: 10,
+        marginTop: '50%',
+        height: '40%',
+        margin: '4%',
+        alignItems: 'center'
+
+    },
+    loca: {
+        color: '#1C5248',
+        fontWeight: '700',
+        fontSize: 20
+    },
+    number: {
+        color: '#B2B2B2',
+        fontSize: 18,
+        fontWeight: '600',
+    },
+    near:{
+        backgroundColor:'white',
+        display:'flex',
+        flexDirection:'row',
+        margin:'2%',
+        borderRadius:10,
+        padding:'2%'
+    },
+    neartext:{
+        color: '#1C5248',
+        fontSize: 20,
+        fontWeight: '700',
+        fontFamily: 'Roboto',
+        paddingLeft:'2%'
+    },
+    hoteltext:{
+        color: '#1C5248',
+        fontSize: 18,
+        fontWeight: '700',
+        fontFamily: 'Roboto',
+    },
+    locationName:{
+        color: '#B2B2B2',
+        fontSize: 18,
+        fontWeight: '700',
+        paddingLeft:'3%'
+    },
+    price:{
+        color: '#1C5248',
+        fontSize: 16,
+        fontWeight: '700',
+        fontFamily: 'Roboto',
+    },
+    nearContainer:{
+        display:'flex',
+        flexDirection:'row',
+        justifyContent:'space-between',
+        paddingLeft:'3%'
+    }
 
 
 })

@@ -67,7 +67,6 @@ const Home = ()=>{
                         style={{fontSize:12,padding:'2%',margin:'2%'}}
                 />
                 </View>
-        
                 <View style={styles. numberText}>
                         <Input 
                         leftIcon={
@@ -84,7 +83,6 @@ const Home = ()=>{
                     />
                 </View>
                 <TouchableOpacity style={styles. touchableOpacity}><Text style={styles.touchableText}>Get it</Text></TouchableOpacity>
-
         </View>
        </>
     )
