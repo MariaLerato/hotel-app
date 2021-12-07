@@ -2,8 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground, ScrollView } from 'react-native'
 import Info from './info'
 import { Icon } from 'react-native-elements'
+import { NavigationContainer } from '@react-navigation/native';
 
-const Search = () => {
+const Search = ({navigation}) => {
     const Data = () => {
 
         return (
@@ -21,7 +22,7 @@ const Search = () => {
                             <View key={action.id}>
 
                                 <View style={styles.ImageContainer}>
-                                    <Image source={{ uri: action.img }} style={styles.Image} />
+                                    <Image source={action.img } style={styles.Image} />
                                     <View style={styles.name}>
                                         <Text style={styles.profilename}>
                                             {action.name} {action.surname}
@@ -69,10 +70,10 @@ const Search = () => {
                     <View >
                         <View style={styles.picContainer}>
                             <ImageBackground source={require('../assets/sandton.png')} style={{ width: 150, height: 170 }}>
-                                <View style={styles.hotelname}>
+                                <TouchableOpacity onPress={()=>navigation.navigate('hotels')} style={styles.hotelname}>
                                     <Text style={styles.loca}>Sandton</Text>
                                     <Text style={styles.number}>10 Hotels</Text>
-                                </View>
+                                </TouchableOpacity>
                             </ImageBackground>
                             <ImageBackground source={require('../assets/pretoria.png')} style={{ width: 150, height: 170, marginLeft: '10%', borderRadius: 20 }}>
                                 <View style={styles.hotelname}>
@@ -88,13 +89,13 @@ const Search = () => {
                 {
                     Info.results.map(data=>
                         <View key={data.id} style={styles.near}>
-                           <View>
+                           <TouchableOpacity onPress={()=>navigation}>
                                 <Image source={data.image}/>
-                            </View>
+                            </TouchableOpacity>
                             <View>
                                 <Text style={styles.hoteltext}>{data.hotelname}</Text>
                                 <Text style={styles.locationName}>{data.location}</Text>
-                            <View style={styles.nearContainer}>
+                                <View style={styles.nearContainer}>
                                 <Text style={styles.price}>{data.price}/{data.state}</Text>
                                 <View style={{flexDirection:'row'}}>
                                 <Icon name={'star'} type={'font-awesome'} color={'#FAA455'} size={18} />
@@ -108,7 +109,6 @@ const Search = () => {
             </View>
                     </ScrollView>
             </View>
-
         </>
     )
 }

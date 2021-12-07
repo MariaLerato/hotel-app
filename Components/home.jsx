@@ -4,7 +4,7 @@ import { Icon,Input } from 'react-native-elements';
 import Info from './info';
 
 
-const Home = ()=>{
+const Home = ({navigation})=>{
     
     return(
        <>
@@ -19,7 +19,7 @@ const Home = ()=>{
                         <Text style={{color:'#6E9B93',fontSize:14,paddingLeft:'1%'}}>Where do you want to stay?</Text>
                     </View>
                    
-                        <Image source={{uri:data.img}} style={styles.profile}/>
+                        <Image source={data.img} style={styles.profile}/>
                     
                 </View>
                 )}
@@ -82,7 +82,7 @@ const Home = ()=>{
                         style={{fontSize:12,padding:'2%',margin:'2%'}}
                     />
                 </View>
-                <TouchableOpacity style={styles. touchableOpacity}><Text style={styles.touchableText}>Get it</Text></TouchableOpacity>
+                <TouchableOpacity style={styles. touchableOpacity} onPress={()=>navigation.navigate('Search')}><Text style={styles.touchableText}>Get it</Text></TouchableOpacity>
         </View>
        </>
     )
