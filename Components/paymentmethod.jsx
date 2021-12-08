@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground } from
 import { Icon } from 'react-native-elements';
 import { RadioButton } from 'react-native-paper';
 
-const Method = () => {
+const Method = ({navigation}) => {
     const [checked, setChecked] = useState('first')
     return (
         <View style={{ marginTop: '10%' }}>
@@ -41,7 +41,7 @@ const Method = () => {
                     />
                 </View>
                 <Text style={{padding:'4%',textAlign:'center',fontSize:20,color:'#C4C4C4',marginTop:'1%'}}>Make Sure the details you provide are accurate,and can be used</Text>
-                <TouchableOpacity style={{width:'80%',height:65,borderColor:'#61B0A2',borderWidth:4,borderRadius:40,alignItems:'center',justifyContent:'center',alignSelf:'center',marginTop:'5%'}} onPress={()=>navigation.navigate('paymentmethod')}><Text style={{color:'#61B0A2',fontSize:24}}>Save</Text></TouchableOpacity>
+                <TouchableOpacity style={{width:'80%',height:65,borderColor:'#61B0A2',borderWidth:4,borderRadius:40,alignItems:'center',justifyContent:'center',alignSelf:'center',marginTop:'5%'}} onPress={()=>navigation.navigate('message')}><Text style={{color:'#61B0A2',fontSize:24}}>Save</Text></TouchableOpacity>
             </View>
         </View>
     )

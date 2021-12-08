@@ -26,6 +26,11 @@ import PaymentMethod from './Components/payment';
 import Method from './Components/paymentmethod';
 import ConfirmPayment from './Components/finalpayment';
 import Message from './Components/message';
+import Review from './Components/review';
+import Feedback from './Components/feedback';
+import Notification from './Components/notification';
+import SearchHistory from './Components/searchHistory';
+import EditProfile from './Components/editprofile';
 
 const Menu = ()=>{
       const Stack = createNativeStackNavigator()
@@ -53,8 +58,14 @@ const Menu = ()=>{
             <Stack.Screen name={'payment'} component={PaymentMethod}/>
              <Stack.Screen name={'paymentmethod'} component={Method}/>
             <Stack.Screen name={'finalpayment'} component={ConfirmPayment}/>
-            <Stack.Screen name={'message'} component={Message}/>
-            <Stack.Screen name={'home'} component={Home}/>
+           
+            <Stack.Screen name={'home'} component={Home}/> 
+             <Stack.Screen name={'message'} component={Message}/>
+         <Stack.Screen name={'review'} component={Review}/> 
+            <Stack.Screen name={'feedback'} component={Feedback}/>
+            <Stack.Screen name={'notification'} component={Notification}/>
+            <Stack.Screen name={'searchHistory'} component={SearchHistory}/>
+            <Stack.Screen name={'editprofile'} component={EditProfile}/>
             <Stack.Screen name={'bottomTab'} component={TabNavigator}/>
             </Stack.Navigator>
         </NavigationContainer>

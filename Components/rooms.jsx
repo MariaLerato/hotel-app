@@ -25,7 +25,7 @@ const Rooms = ({navigation})=>{
                     <Text style={Styles.text}>Private Bathroom</Text>
                     </View>
                     <View>
-                        <Icon name={'wind'} type={'font-awesome'} color={'#447E74'}/>
+                        <Icon name={'snowflake'} type={'font-awesome-5'} color={'#447E74'}/>
                         <Text style={Styles.text}>Personal AC</Text>
                     </View>
                 </View>
@@ -73,11 +73,11 @@ const Rooms = ({navigation})=>{
                     <Text style={Styles.text}>Private Bathroom</Text>
                     </View>
                     <View>
-                        <Icon name={'ac'} type={'font-awesome'} color={'#447E74'}/>
+                        <Icon name={'snowflake'} type={'font-awesome-5'} color={'#447E74'}/>
                         <Text style={Styles.text}>Personal AC</Text>
                     </View>
                     <View>
-                        <Icon name={'couch'} type={'font-awesome5'} color={'#447E74'}/>
+                        <Icon name={'couch'} type={'font-awesome-5'} color={'#447E74'}/>
                         <Text style={Styles.text}>Lounge</Text>
                     </View>
                 </View>

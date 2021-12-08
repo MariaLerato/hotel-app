@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: '700',
         fontFamily: 'Roboto'
-
+        ,paddingLeft:'2%'
     },
     view: {
         color: '#B2B2B2',
@@ -272,6 +272,7 @@ const styles = StyleSheet.create({
         margin:'2%',
         borderRadius:10,
         padding:'2%'
+        ,paddingLeft:'2%'
     },
     neartext:{
         color: '#1C5248',

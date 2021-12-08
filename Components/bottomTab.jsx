@@ -5,6 +5,7 @@ import {Icon} from 'react-native-elements'
 import Search from './Search'
 import Bookings from './bookings'
 import Profile from './profile'
+import MyBookings from './myBookings'
 
 const TabNavigator=()=>{
     const Tab = createBottomTabNavigator()
@@ -20,7 +21,7 @@ const TabNavigator=()=>{
                 <Icon name={'search'} type="font-awesome" size={size} color='#B2B2B2'/>
             ),}}
             />
-               <Tab.Screen name="bookings" component={Bookings} 
+               <Tab.Screen name="myBookings" component={MyBookings} 
             options={{ tabBarIcon:({color,size})=>(
                 <Icon name={'bookmark'} type="font-awesome" size={size}  color='#B2B2B2'/>
             ),}}
