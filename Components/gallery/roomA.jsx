@@ -5,7 +5,7 @@ const RoomA = ({navigation})=>{
     return(
         <>
             <TouchableOpacity onPress={()=>navigation.navigate('bathA')} style={styles.container}>
-                <ImageBackground source={require('../assets/roomFull.png')} style={{width:'100%',height:'100%'}}>
+                <ImageBackground source={require('../../assets/roomFull.png')} style={{width:'100%',height:'100%'}}>
                     <Text style={styles.text}>1/3</Text>
                 </ImageBackground>
             </TouchableOpacity>

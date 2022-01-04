@@ -31,7 +31,7 @@ const Feedback = ({navigation})=>{
                style={Styles.textbox}
                />
            </View>
-           <TouchableOpacity style={Styles.touchableOpacity} onPress={()=>navigation.navigate('home')}><Text style={Styles.touchableText}>Submit</Text></TouchableOpacity>
+           <TouchableOpacity style={Styles.touchableOpacity} onPress={()=>navigation.navigate('bottomTab')}><Text style={Styles.touchableText}>Submit</Text></TouchableOpacity>
         </View>
         </>
     )

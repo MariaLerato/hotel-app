@@ -1,10 +1,10 @@
 import React from 'react';
 import {View,ImageBackground,Text,TouchableOpacity,StyleSheet} from 'react-native'
 
-const Lounge = ({navigation})=>{
+const RoomC = ({navigation})=>{
     return(
-        <TouchableOpacity onPress={()=>navigation.navigate('rooms')} style={styles.container}>
-            <ImageBackground source={require('../assets/lounge.png')} style={{width:'100%',height:'100%'}}>
+        <TouchableOpacity onPress={()=>navigation.navigate('bathC')} style={styles.container}>
+            <ImageBackground source={require('../../assets/whitebed.png')} style={{width:'100%',height:'100%'}}>
                 <Text style={styles.text}>1/3</Text>
             </ImageBackground>
         </TouchableOpacity>
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
             marginTop:'170%'
         }
 })
-export default Lounge
+export default RoomC

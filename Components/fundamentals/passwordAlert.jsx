@@ -1,6 +1,6 @@
 import React from 'react';
 import {View,Text,StyleSheet} from 'react-native'
-import Info from './info';
+import Info from '../info';
 
 const Alert = ({navigation})=>{
     return(

@@ -1,16 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground, ScrollView } from 'react-native'
 import Info from './info'
 import { Icon } from 'react-native-elements'
-import { NavigationContainer } from '@react-navigation/native';
+import SearchAlt from './searchAlt';
 
-const Search = ({navigation}) => {
-    const Data = () => {
 
+const Search = ({ navigation, route }) => {
+    const id = route.params.id
+    const name = route.params.name
+    const status = route.params.status
+    const dateIn = route.params.dateIn
+    const dateOut = route.params.dateOut
+
+    const DisplayHotels = () => {
         return (
-            <>
-
-            </>
+            <View>
+                <View style={{ display: 'flex', flexDirection: 'row' }}>
+                    {SearchAlt.hotels.filter(data =>
+                        data.province.includes(id)).map(action => (
+                            <View style={{ padding: '2%', borderRadius: 20 }} key={action.id}>
+                                <ImageBackground source={action.image} style={{ width: 175, height: 160, marginTop: '5%', borderRadius: 20 }}>
+                                    <TouchableOpacity onPress={() => navigation.navigate('sandton',{number:name})} style={styles.hotelname}>
+                                        <Text style={styles.loca}>{action.location}</Text>
+                                        <Text style={styles.number}>{action.location.length} Hotels</Text>
+                                    </TouchableOpacity>
+                                </ImageBackground>
+                            </View>
+                        ))}
+                </View>
+            </View>
         )
     }
     return (
@@ -22,7 +40,7 @@ const Search = ({navigation}) => {
                             <View key={action.id}>
 
                                 <View style={styles.ImageContainer}>
-                                    <Image source={action.img } style={styles.Image} />
+                                    <Image source={action.img} style={styles.Image} />
                                     <View style={styles.name}>
                                         <Text style={styles.profilename}>
                                             {action.name} {action.surname}
@@ -37,78 +55,67 @@ const Search = ({navigation}) => {
                         )
                     }
                 </View>
-
             </View>
             <View style={styles.container}>
                 <View style={styles.destinationContainer}>
                     <View style={styles.padding}>
                         <View>
                             <Text style={styles.textDestination}>Destination</Text>
-                            <Text style={styles.input}>Johannesburg,South Africa</Text>
+                            <Text style={styles.input}>{id}</Text>
                         </View>
                         <View style={styles.dateContainer}>
                             <View>
                                 <Text style={styles.title}>Date</Text>
-                                <Text style={styles.input}>02 Dec - 10 Dec</Text>
+                                <Text style={styles.input}>{dateIn} / {dateOut}</Text>
                             </View>
                             <View >
                                 <Text style={styles.titles}>Rooms</Text>
-                                <Text style={styles.rooms}>10 Guests - 5 Rooms</Text>
+                                <Text style={styles.rooms}>{status} Guests, {name} Rooms</Text>
                             </View>
                         </View>
                     </View>
                     <TouchableOpacity style={styles.touchableOpacity}><Text style={styles.touchableText}>Search Hotels</Text></TouchableOpacity>
                 </View>
-                    <ScrollView>
+                <ScrollView>
                     <View style={{ marginTop: '-3%' }} >
-                    
-                    <View style={styles.map}>
-                        <Text style={styles.location}>By Location</Text>
-                        <Text style={styles.view}>View All</Text>
-                    </View>
+                        <View style={styles.map}>
+                            <Text style={styles.location}>By Location</Text>
+                            <TouchableOpacity onPress={() => navigation.navigate('hotels')}><Text style={styles.view}>View All</Text></TouchableOpacity>
+                        </View>
 
-                    <View >
-                        <View style={styles.picContainer}>
-                            <ImageBackground source={require('../assets/sandton.png')} style={{ width: 150, height: 170 }}>
-                                <TouchableOpacity onPress={()=>navigation.navigate('hotels')} style={styles.hotelname}>
-                                    <Text style={styles.loca}>Sandton</Text>
-                                    <Text style={styles.number}>10 Hotels</Text>
-                                </TouchableOpacity>
-                            </ImageBackground>
-                            <ImageBackground source={require('../assets/pretoria.png')} style={{ width: 150, height: 170, marginLeft: '10%', borderRadius: 20 }}>
-                                <View style={styles.hotelname}>
-                                    <Text style={styles.loca}>Pretoria</Text>
-                                    <Text style={styles.number}>30 Hotels</Text>
-                                </View>
-                            </ImageBackground>
+                        <View >
+                            <DisplayHotels />
                         </View>
                     </View>
+                    <View>
+                        <Text style={styles.neartext}>Near You</Text>
+                        {
+                            SearchAlt.nearby.filter(data =>
+                                data.province === id
+                            ).map(action => (
+                                < View key={action.id} style={styles.near}>
+                                    <TouchableOpacity onPress={() => navigation.navigate('roomsMenu')}>
+                                        <Image source={action.image} style={{width:65,height:65,borderRadius:5,marginTop:'6%'}}/>
+                                    </TouchableOpacity>
+                                    <View style={{paddingLeft:'2%'}}>
+                                        <Text style={styles.hoteltext}>{action.hotelname}</Text>
+                                        <Text style={styles.locationName}>{action.location}</Text>
+                                        <View style={styles.nearContainer}>
+                                            <Text style={styles.price}>{action.price}/{action.state}</Text>
+                                            <View style={{ flexDirection: 'row' }}>
+                                                <Icon name={'star'} type={'font-awesome'} color={'#FAA455'} size={18} />
+                                                <Text style={styles.number}>4.9</Text>
+                                            </View>
+                                        </View>
+                                    </View>
+                                </View>    
+                            ))
+                           
+                   
+                        }
             </View>
-            <View>
-                <Text style={styles. neartext}>Near You</Text>
-                {
-                    Info.results.map(data=>
-                        <View key={data.id} style={styles.near}>
-                           <TouchableOpacity onPress={()=>navigation}>
-                                <Image source={data.image}/>
-                            </TouchableOpacity>
-                            <View>
-                                <Text style={styles.hoteltext}>{data.hotelname}</Text>
-                                <Text style={styles.locationName}>{data.location}</Text>
-                                <View style={styles.nearContainer}>
-                                <Text style={styles.price}>{data.price}/{data.state}</Text>
-                                <View style={{flexDirection:'row'}}>
-                                <Icon name={'star'} type={'font-awesome'} color={'#FAA455'} size={18} />
-                                <Text style={styles.number}>4.9</Text>
-                                </View>
-                            </View>
-                            </View>
-                        </View>
-                        )
-                }
-            </View>
-                    </ScrollView>
-            </View>
+        </ScrollView>
+            </View >
         </>
     )
 }
@@ -232,12 +239,13 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: '700',
         fontFamily: 'Roboto'
-        ,paddingLeft:'2%'
+        , paddingLeft: '2%'
     },
     view: {
         color: '#B2B2B2',
         fontSize: 19,
         fontWeight: '700',
+        marginLeft: '4%'
     },
     picContainer: {
         display: 'flex',
@@ -249,8 +257,8 @@ const styles = StyleSheet.create({
     hotelname: {
         backgroundColor: 'white',
         borderRadius: 10,
-        marginTop: '50%',
-        height: '40%',
+        marginTop: '45%',
+        height: '45%',
         margin: '4%',
         alignItems: 'center'
 
@@ -265,45 +273,45 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: '600',
     },
-    near:{
-        backgroundColor:'white',
-        display:'flex',
-        flexDirection:'row',
-        margin:'2%',
-        borderRadius:10,
-        padding:'2%'
-        ,paddingLeft:'2%'
+    near: {
+        backgroundColor: 'white',
+        display: 'flex',
+        flexDirection: 'row',
+        margin: '2%',
+        borderRadius: 10,
+        padding: '2%'
+        , paddingLeft: '2%'
     },
-    neartext:{
+    neartext: {
         color: '#1C5248',
         fontSize: 20,
         fontWeight: '700',
         fontFamily: 'Roboto',
-        paddingLeft:'2%'
+        paddingLeft: '2%'
     },
-    hoteltext:{
+    hoteltext: {
         color: '#1C5248',
         fontSize: 18,
         fontWeight: '700',
         fontFamily: 'Roboto',
     },
-    locationName:{
+    locationName: {
         color: '#B2B2B2',
         fontSize: 18,
         fontWeight: '700',
-        paddingLeft:'3%'
+        paddingLeft: '3%'
     },
-    price:{
+    price: {
         color: '#1C5248',
         fontSize: 16,
         fontWeight: '700',
         fontFamily: 'Roboto',
     },
-    nearContainer:{
-        display:'flex',
-        flexDirection:'row',
-        justifyContent:'space-between',
-        paddingLeft:'3%'
+    nearContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingLeft: '3%'
     }
 
 

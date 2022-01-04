@@ -4,7 +4,7 @@ import {View,Image,Text,TouchableOpacity,StyleSheet,ImageBackground} from 'react
 const RoomB = ({navigation})=>{
     return(
         <TouchableOpacity onPress={()=>navigation.navigate('bathB')} style={styles.container}>
-        <ImageBackground source={require('../assets/firePlace.png')} style={{width:'100%',height:'100%'}}>
+        <ImageBackground source={require('../../assets/firePlace.png')} style={{width:'100%',height:'100%'}}>
             <Text style={styles.text}>1/2</Text>
         </ImageBackground>
         </TouchableOpacity>

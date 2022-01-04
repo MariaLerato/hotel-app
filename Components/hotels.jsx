@@ -20,7 +20,7 @@ const Hotels = ({navigation})=> {
                     <View style={styles.images} key={data.id}>
                         <ImageBackground source={data.image} style={{width:150,height:188,}} key={data.id}>
                             <View style={styles.textContainer} >
-                                <Text style={styles.hotelName} onPress={()=>navigation.navigate('rooms')}>{data.hotelname}</Text>
+                                <Text style={styles.hotelName} onPress={()=>navigation.navigate('roomsMenu')}>{data.hotelname}</Text>
                                 <TouchableOpacity onPress={()=>navigation.navigate('review')}><Text style={styles.reviews}>{data.review}</Text></TouchableOpacity>
                             </View>
                         </ImageBackground>

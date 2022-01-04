@@ -2,7 +2,23 @@ import React from 'react';
 import {View,Text,ImageBackground,StyleSheet, TouchableOpacity} from 'react-native'
 import { Icon } from 'react-native-elements';
 
-const Confirm = ({navigation})=>{
+const Confirm = ({navigation,route})=>{
+    const name = route.params.name
+    const total = route.params.total
+    const about = route.params.about
+    const number = route.params.number
+    let price = number * total
+    const TotalPrice = ()=>{
+     
+        return (
+            <Text>
+               R {price}
+            </Text>
+        )
+    }
+    
+    console.log('Total',TotalPrice)
+    
     return(
         <View style={{marginTop:'10%'}}>
         <View style={Styles.header}>
@@ -13,7 +29,7 @@ const Confirm = ({navigation})=>{
             <ImageBackground source={require('../assets/pretoria.png')} style={{width:'100%',height:200,borderRightRadius:50}}>
                 <View style={Styles.textContainer}>
                     <Text style={{color:'#C4C4C4',fontSize:20}}>JI, Makua -Johannesburg</Text>
-                    <Text style={{color:'#1C5248',fontSize:22,fontWeight:'700'}}>Hotel Sandton Sun, Room A</Text>
+                    <Text style={{color:'#1C5248',fontSize:22,fontWeight:'700'}}>Hotel Sandton Sun, {name}</Text>
                 </View>
             </ImageBackground>
             <View style={{alignItems:'flex-start',width:'100%'}}>
@@ -65,15 +81,22 @@ const Confirm = ({navigation})=>{
             <View style={{display:'flex',flexDirection:'row',width:'100%',justifyContent:'space-between',padding:'2%'}}>
                 <View>
                     <Text style={{color:'#C4C4C4',fontSize:18}}>Total Price</Text>
-                    <Text style={{ color:'#1C5248',fontWeight:'700',paddingLeft:'2%'}}>9xNights, 5Rooms</Text>
+                    <Text style={{ color:'#1C5248',fontWeight:'700',paddingLeft:'2%'}}>9xNights, {number} Rooms</Text>
                 </View>
                 <View style={{marginTop:'7%'}} >
                    
-                    <Text style={{ color:'#06AC8E',fontWeight:'700',paddingLeft:'-2%'}}>R10040.00</Text>
+                    <Text style={{ color:'#06AC8E',fontWeight:'700',paddingLeft:'-2%'}}>
+                     <TotalPrice/>
+                    </Text>
                 </View>
             </View>
             <View style={{display:'flex',flexDirection:'row',margin:'2%',width:'100%'}}>
-                <TouchableOpacity style={{  backgroundColor:'#75BFB2',margin:'2%',width:'50%',height:60,justifyContent:'center',borderRadius:10}} onPress={()=>navigation.navigate('payment')}><Text style={{color:'white',fontSize:20,alignSelf:'center',fontWeight:'700'}}>Confirm Booking</Text></TouchableOpacity>
+                <TouchableOpacity style={{  backgroundColor:'#75BFB2',margin:'2%',width:'50%',height:60,justifyContent:'center',borderRadius:10}} onPress={()=>navigation.navigate('payment',{
+                    Totalprice:price,
+                    Roomname:name,
+                    Guestnumber:number,
+
+                })}><Text style={{color:'white',fontSize:20,alignSelf:'center',fontWeight:'700'}}>Confirm Booking</Text></TouchableOpacity>
                 <TouchableOpacity style={{ backgroundColor:'#75BFB2',margin:'2%',width:'40%',justifyContent:'center',borderRadius:10}} onPress={()=>navigation.navigate('booking')}><Text style={{color:'white',fontSize:20,alignSelf:'center',fontWeight:'700'}}>Cancel</Text></TouchableOpacity>
             </View>
 

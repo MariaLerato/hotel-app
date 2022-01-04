@@ -10,7 +10,7 @@ const SplashScreen = ({navigation})=>{
    
     return (
         <View style={styles.Container}>
-            <Image source={require('../assets/SplashImage.png')} resizeMode='contain' style={styles.Image} />
+            <Image source={require('../../assets/SplashImage.png')} resizeMode='contain' style={styles.Image} />
                 <View style={styles.TextContainer}>
                     <Text style={styles.headerText}>Montello</Text>
                     <Text style={styles.subtext}>Hotel App</Text>

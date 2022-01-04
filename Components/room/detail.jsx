@@ -1,11 +1,20 @@
 import React from 'react';
-import {View,Text,ImageBackground,TouchableOpacity,StyleSheet} from 'react-native'
-import {Icon} from 'react-native-elements'
+import { View, Text, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native'
+import { Icon } from 'react-native-elements';
+import { date } from 'yup';
+import Info from '../info';
 
-const Bookings = ({navigation})=>{
-    return(
-        <View style={styles.container}>
-            <ImageBackground source={require('../assets/pretoria.png')} style={{width:'100%',height:'70%'}}>
+const Detail = ({ route, navigation }) => {
+    const id = route.params.id
+    const price = route.params.price
+    const des = route.params.des
+    const number = route.params.number
+
+
+    return (
+        <>
+         <View style={styles.container}>
+            <ImageBackground source={require('../../assets/pretoria.png')} style={{width:'100%',height:'70%'}}>
                 <View style={styles.head}>
                     <TouchableOpacity style={styles.back} onPress={()=>navigation.goBack()}>
                         <Icon name={'arrow-back'} color={'white'} />
@@ -20,9 +29,9 @@ const Bookings = ({navigation})=>{
                    <Text style={styles.title}>
                        Hotel Sandton Sun
                    </Text>
-                   <Text style={styles.sub}>Rivonia Rd</Text>
+                   <Text style={styles.sub}>{id}</Text>
                    <Text style={styles.price}>Price</Text>
-                   <Text style={styles.type}>R1453/Night</Text>
+                   <Text style={styles.type}>{price}/Night</Text>
                </View>
                <View>
                    <Icon name={'star'} type={'font-awesome'} color={'#FAA455'}/>
@@ -34,17 +43,34 @@ const Bookings = ({navigation})=>{
                     Detail
                 </Text>
                 <Text style={styles.type}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,
-                sed adipiscing viverra quam.Tempus eros egestas augue elit 
+                {des}
                 </Text>
                 <Text style={styles.subText}>
                     On Map
                 </Text>
-                <ImageBackground source={require('../assets/map.png')} style={{width:344,height:130,alignSelf:'center',marginTop:'5%'}}>
-                    <TouchableOpacity onPress={()=>navigation.navigate('bookingDetails')} style={{backgroundColor:'#53B5A3',width:'95%',height:57,alignSelf:'center',justifyContent:'center',alignItems:'center',marginTop:'20%',borderRadius:10}}><Text style={{color:'white',fontSize:24,fontWeight:'700'}}>Book Now</Text></TouchableOpacity>
+              {
+                  Info.pretoria.map(action=>
+                    <TouchableOpacity key={action.id} onPress={()=>navigation.navigate('map',{
+                        lati:action.latitude,
+                        longi:action.longitude
+                    })} >
+                    <ImageBackground source={require('../../assets/map.png')} style={{width:344,height:150,alignSelf:'center',marginTop:'5%',borderRadius:20}}>
+                    <TouchableOpacity onPress={()=>navigation.navigate('bookingDetails',{
+                        name:id,
+                        total:price,
+                        about:des,
+                        number:number   
+
+                    })} style={{backgroundColor:'#53B5A3',width:'95%',height:57,alignSelf:'center',justifyContent:'center',alignItems:'center',marginTop:'20%',borderRadius:10}}><Text style={{color:'white',fontSize:24,fontWeight:'700'}}>Book Now</Text></TouchableOpacity>
                 </ImageBackground>
+                </TouchableOpacity>)
+              } 
+                    
             </View>
         </View>
+
+              
+        </>
     )
 }
 const styles = StyleSheet.create({
@@ -102,4 +128,4 @@ const styles = StyleSheet.create({
         color:'#B2B2B2'
     }
 })
-export default Bookings
+export default Detail

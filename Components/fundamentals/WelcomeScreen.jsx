@@ -8,7 +8,7 @@ const WelcomeScreen = ({navigation}) =>{
             
         </View>
         <View style={styles.second}>
-            <Image style={styles.welcomeImage} source={require('../assets/welcomeImage.png')}/>
+            <Image style={styles.welcomeImage} source={require('../../assets/welcomeImage.png')}/>
             <Text style={styles.welcomeText}>Efficient,Elegant & Best Prices</Text>
             <Text style={styles.subtext}>Control Where You Spend Your Holiday</Text>
             <TouchableOpacity style={styles.touchableOpacity} onPress={()=>navigation.navigate('SignIn')}><Text style={styles.touchableText}>Get Started</Text></TouchableOpacity>
