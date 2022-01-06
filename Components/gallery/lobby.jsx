@@ -1,11 +1,13 @@
 import React from 'react';
 import {View,ImageBackground,Text,TouchableOpacity,StyleSheet} from 'react-native'
+import { img } from './reusables';
 
-const BathB = ({navigation})=>{
+const Lobby = ({navigation})=>{
     return(
-        <TouchableOpacity onPress={()=>navigation.navigate('lobby')} style={styles.container}>
-        <ImageBackground source={require('../../assets/bath2Full.png')} style={{width:'100%',height:'100%'}}>
-            <Text style={styles.text}>3/3</Text>
+        <TouchableOpacity onPress={()=>navigation.navigate('hotelrooms')} style={styles.container}>
+        <ImageBackground source={img.lobby} style={{width:'100%',height:'100%'}}>
+            <Text style={styles.text}>2
+            /2</Text>
         </ImageBackground>
         </TouchableOpacity>
     )
@@ -22,4 +24,4 @@ const styles= StyleSheet.create({
         marginTop:'auto'
     }
 })
-export default BathB
+export default Lobby

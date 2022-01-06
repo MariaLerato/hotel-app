@@ -2,21 +2,18 @@ import React from 'react';
 import {View,ImageBackground,Text,TouchableOpacity,StyleSheet} from 'react-native'
 import { img } from './reusables';
 
-
-const Lounge = ({navigation})=>{
+const beachC = ({navigation})=>{
     return(
-        <TouchableOpacity onPress={()=>navigation.navigate('beach')} style={styles.container}>
-            <ImageBackground source={img.kitch} style={{width:'100%',height:'100%'}}>
-                <Text style={styles.text}>3/4</Text>
+        <TouchableOpacity onPress={()=>navigation.navigate('hotelrooms')} style={styles.container}>
+            <ImageBackground source={img.hotelBeach1} style={{width:'100%',alignSelf:'center',height:'100%'}}>
+                <Text style={styles.text}>4/4</Text>
             </ImageBackground>
         </TouchableOpacity>
     )
 }
 const styles = StyleSheet.create({
-    
         container:{
             flex:1,
-            width:'100%'
         },
         text:{
             color:'white',
@@ -25,4 +22,4 @@ const styles = StyleSheet.create({
             marginTop:'auto'
         }
 })
-export default Lounge
+export default beachC

@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground, Scrol
 import Info from './info'
 import { Icon } from 'react-native-elements'
 import SearchAlt from './searchAlt';
+import { navbars } from './gallery/reusables';
 
 
 const Search = ({ navigation, route }) => {
@@ -18,9 +19,9 @@ const Search = ({ navigation, route }) => {
                 <View style={{ display: 'flex', flexDirection: 'row' }}>
                     {SearchAlt.hotels.filter(data =>
                         data.province.includes(id)).map(action => (
-                            <View style={{ padding: '2%', borderRadius: 20 }} key={action.id}>
-                                <ImageBackground source={action.image} style={{ width: 175, height: 160, marginTop: '5%', borderRadius: 20 }}>
-                                    <TouchableOpacity onPress={() => navigation.navigate('sandton',{number:name})} style={styles.hotelname}>
+                            <View style={{ padding: '3%'}} key={action.id}>
+                                <ImageBackground source={action.image} style={{ width:170,height:180, borderRadius: 40,borderTopStartRadius:20 }}>
+                                    <TouchableOpacity onPress={() => navigation.navigate(action.nav,{number:name})} style={styles.hotelname}>
                                         <Text style={styles.loca}>{action.location}</Text>
                                         <Text style={styles.number}>{action.location.length} Hotels</Text>
                                     </TouchableOpacity>
@@ -94,7 +95,7 @@ const Search = ({ navigation, route }) => {
                                 data.province === id
                             ).map(action => (
                                 < View key={action.id} style={styles.near}>
-                                    <TouchableOpacity onPress={() => navigation.navigate('roomsMenu')}>
+                                    <TouchableOpacity onPress={() => navigation.navigate('hotelrooms')}>
                                         <Image source={action.image} style={{width:65,height:65,borderRadius:5,marginTop:'6%'}}/>
                                     </TouchableOpacity>
                                     <View style={{paddingLeft:'2%'}}>
@@ -258,20 +259,21 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 10,
         marginTop: '45%',
-        height: '45%',
-        margin: '4%',
-        alignItems: 'center'
+        height: '40%',
+        margin: '8%',
+        alignItems: 'center',
+        justifyContent:'center'
 
     },
     loca: {
         color: '#1C5248',
         fontWeight: '700',
-        fontSize: 20
+        fontSize: 25
     },
     number: {
         color: '#B2B2B2',
         fontSize: 18,
-        fontWeight: '600',
+        fontWeight: '700',
     },
     near: {
         backgroundColor: 'white',

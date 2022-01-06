@@ -11,7 +11,7 @@ import Alert from './Components/fundamentals/passwordAlert'
 import Home from './Components/home';
 import TabNavigator from './Components/bottomTab';
 import Hotels from './Components/hotels';
-import Rooms from './Components/rooms';
+
 import RoomA from './Components/gallery/roomA';
 import RoomB from './Components/gallery/roomB';
 import RoomC from './Components/gallery/roomC';
@@ -37,12 +37,17 @@ import SandtonHotels from './Components/hotelLocation/Sandton/sandton';
 import roomMenu from './Components/room/roomsMenu';
 import hotelroom from './Components/room/hotelrooms';
 import Detail from './Components/room/detail';
+import beachC from './Components/gallery/beach';
+import Lobby from './Components/gallery/lobby';
+import Bar from './Components/gallery/bar';
+import PolokwaneHotels from './Components/hotelLocation/limpopo/limpopo';
+import VendaHotels from './Components/hotelLocation/limpopo/venda';
 
 const Menu = ()=>{
       const Stack = createNativeStackNavigator()
     return(
         <NavigationContainer>
-            <Stack.Navigator initialRouteName={'bottomTab'} screenOptions={{headerShown:false}}>
+            <Stack.Navigator initialRouteName={'SplashScreen'} screenOptions={{headerShown:false}}>
              <Stack.Screen name={'SplashScreen'} component={SplashScreen} />
             <Stack.Screen name={'SignIn'} component={SignIn} />
              <Stack.Screen name={'WelcomeScreen'} component={WelcomeScreen} />
@@ -72,12 +77,15 @@ const Menu = ()=>{
              <Stack.Screen name={'map'} component={Maps}/>  
             <Stack.Screen name={'Search'} component={Search}/> 
             <Stack.Screen name={'hotelrooms'} component={hotelroom}/>  
-            <Stack.Screen name={'pretoria'} component={PretoriaHotels}/>
+            <Stack.Screen name={'Pretoria'} component={PretoriaHotels}/>
             <Stack.Screen name={'sandton'} component={SandtonHotels}/>
-            
+            <Stack.Screen name={'beach'} component={beachC}/>
+            <Stack.Screen name={'lobby'} component={Lobby}/>
+            <Stack.Screen name={'bar'} component={Bar}/>
             <Stack.Screen name={'bottomTab'} component={TabNavigator}/>
-            <Stack.Screen name={'rooms'} component={Rooms}/>
+            <Stack.Screen name={'limpopo'} component={PolokwaneHotels}/>
             <Stack.Screen name={'roomsMenu'} component={roomMenu}/> 
+            <Stack.Screen name={'venda'} component={VendaHotels}/>
             </Stack.Navigator>
         </NavigationContainer>
         

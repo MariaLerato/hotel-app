@@ -3,8 +3,6 @@ import {View,TouchableOpacity,Text,Image,ImageBackground, FlatList, SafeAreaView
 import info from './info'
 import { Icon } from 'react-native-elements'
 
-
-
 const Hotels = ({navigation})=> {
     return(
         <ScrollView>
@@ -20,7 +18,7 @@ const Hotels = ({navigation})=> {
                     <View style={styles.images} key={data.id}>
                         <ImageBackground source={data.image} style={{width:150,height:188,}} key={data.id}>
                             <View style={styles.textContainer} >
-                                <Text style={styles.hotelName} onPress={()=>navigation.navigate('roomsMenu')}>{data.hotelname}</Text>
+                                <Text style={styles.hotelName} onPress={()=>navigation.navigate('hotelrooms')}>{data.hotelname}</Text>
                                 <TouchableOpacity onPress={()=>navigation.navigate('review')}><Text style={styles.reviews}>{data.review}</Text></TouchableOpacity>
                             </View>
                         </ImageBackground>
@@ -36,7 +34,7 @@ const Hotels = ({navigation})=> {
                     <View style={styles.images} key={data.id}>
                         <ImageBackground source={data.image} style={{width:150,height:188,}} key={data.id}>
                             <View style={styles.textContainer} >
-                                <Text style={styles.hotelName} onPress={()=>navigation.navigate('rooms')} >{data.hotelname}</Text>
+                                <Text style={styles.hotelName} onPress={()=>navigation.navigate('hotelrooms')} >{data.hotelname}</Text>
                         <TouchableOpacity onPress={()=>navigation.navigate('review')}><Text style={styles.reviews}>{data.review}</Text></TouchableOpacity>
                             </View>
                         </ImageBackground>
@@ -52,7 +50,7 @@ const Hotels = ({navigation})=> {
                     <View style={styles.images} key={data.id}>
                         <ImageBackground source={data.image} style={{width:150,height:188,}} key={data.id}>
                             <View style={styles.textContainer} >
-                                <Text style={styles.hotelName} onPress={()=>navigation.navigate('rooms')} >{data.hotelname}</Text>
+                                <Text style={styles.hotelName} onPress={()=>navigation.navigate('hotelrooms')} >{data.hotelname}</Text>
                                 <TouchableOpacity onPress={()=>navigation.navigate('review')}><Text style={styles.reviews}>{data.review}</Text></TouchableOpacity>
                             </View>
                         </ImageBackground>
@@ -70,7 +68,8 @@ const Hotels = ({navigation})=> {
 }
 const styles= StyleSheet.create({
     container:{
-        marginTop:'10%'
+        marginTop:'8%',
+        flex:1
     },
     header:{
         display:'flex',
@@ -103,15 +102,15 @@ const styles= StyleSheet.create({
     imageContainer:{
         backgroundColor:'#EEE9E9',
         marginTop:'3%',
-        borderRadius:15,
+    
         margin:'2%',
         padding:'3%',
-        width:'101%'
+    
     },
     textHead:{
         color:'#1C5248',
         fontSize:24,
-        paddingLeft:'3%'
+        paddingLeft:'13%'
     },
     subHeading:{
         color:'#1C5248',

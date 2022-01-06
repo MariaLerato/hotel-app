@@ -30,7 +30,7 @@ const hotelroom = ({ navigation,route }) => {
                                         {data.name}
                                     </Text>
                                 </TouchableOpacity>
-                                <Text style={Styles.price}>{data.price}</Text>
+                                <Text style={Styles.price}>R {data.price}</Text>
                             </View>
                             <View>
                                 <Text style={Styles.subtext}>{data.description}</Text>
@@ -50,11 +50,11 @@ const hotelroom = ({ navigation,route }) => {
                             </View>
                             <ScrollView horizontal style={{ padding: '2%' }}>
                                 <TouchableOpacity style={Styles.touchable} onPress={() => navigation.navigate(data.navigate)}>
-                                    <Image source={data.pic1} style={{ width: 200,borderRadius:20 }}  /></TouchableOpacity>
+                                    <Image source={data.pic1} style={{ width: 200,borderRadius:20 ,height:150}}  /></TouchableOpacity>
                                 <TouchableOpacity style={Styles.touchable} onPress={() => navigation.navigate(data.bath)}>
-                                    <Image source={data.pic2} style={{ width: 200,borderRadius:20 }}  /></TouchableOpacity>
+                                    <Image source={data.pic2} style={{ width: 200,borderRadius:20,height:150 }}  /></TouchableOpacity>
                                     <TouchableOpacity style={Styles.touchable} onPress={() => navigation.navigate(data.lou)}>
-                                    <Image source={data.pic3} style={{ width: 180,borderRadius:20 }}  /></TouchableOpacity>
+                                    <Image source={data.pic3} style={{ width: 180,borderRadius:20,height:150 }}  /></TouchableOpacity>
                             </ScrollView>
                         </View>)
                 }

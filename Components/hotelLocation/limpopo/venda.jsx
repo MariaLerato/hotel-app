@@ -3,37 +3,36 @@ import {Image,Text,View,ScrollView,TouchableOpacity,StyleSheet,FlatList} from 'r
 import { Icon } from 'react-native-elements';
 import Info from '../../info';
 
-const SandtonHotels = ({navigation,route})=>{
-    const number = route.params.number
+const VendaHotels = ({navigation})=>{
     return(
         <>
         <View >
             <View style={{width:'100%',display:'flex',flexDirection:'row',marginTop:'10%',alignItems:'center',marginLeft:'2%',padding:'2%'}}>
                <TouchableOpacity onPress={()=>navigation.navigate('Search')} ><Icon name={'arrow-back'} size={25} color= {'#1C5248'}/></TouchableOpacity>
-                <Text style={{fontSize:25,paddingLeft:"8%",color: '#1C5248'}}>Sandton Hotels</Text>
+                <Text style={{fontSize:25,paddingLeft:"8%",color: '#1C5248'}}>Venda Hotels</Text>
             </View>
                <ScrollView>
                <View>
             {
-                Info.hotels.map(data=>
+                Info.venda.map(data=>
                     <>
                         <View style={{flex:1,display:'flex',flexDirection:'row',justifyContent:'space-between',padding:'2%'}} key={data.id}>
-                            <TouchableOpacity onPress={()=>navigation.navigate('hotelrooms',{
-                                number:number
-                            })} >
+                        <TouchableOpacity  onPress={()=>navigation.navigate('rooms')} >
                             <Image
                             source={data.image}
                             style={{width:140,height:150,borderRadius:30,borderWidth:2,borderColor:'white' }}
                             ></Image>    
-                            </TouchableOpacity>   
+                            </TouchableOpacity> 
                             <View>
-                                <Text style={{marginTop:'1%',fontSize:20,color: '#1C5248',fontWeight:'700'}}>
+                                <Text style={{marginTop:'1%',fontSize:20,color: '#1C5248',fontWeight:'700',paddingLeft:'1%'}}>
                                     {data.hotelname}
                                 </Text>
                                 <Text style={{width:'30%',paddingLeft:'1%'}}>{data.description}</Text>
-                                <TouchableOpacity  onPress={()=>navigation.navigate('review')}><Text style={{ color:'#F24C04',fontSize:18,paddingLeft:'1%'}}>{data.review}</Text></TouchableOpacity>
+                                <TouchableOpacity  onPress={()=>navigation.navigate('review')}>
+                                    <Text style={{ color:'#F24C04',fontSize:18,paddingLeft:'1%'}}>{data.review}</Text>
+                                </TouchableOpacity>
                             </View>
-                               
+                                   
                         </View>
                     </>)
             }
@@ -43,4 +42,4 @@ const SandtonHotels = ({navigation,route})=>{
         </>
     )
 }
-export default SandtonHotels
+export default VendaHotels
