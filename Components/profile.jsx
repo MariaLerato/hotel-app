@@ -1,6 +1,7 @@
 import React from 'react';
 import {View,Text,Image,ImageBackground,ScrollView,StyleSheet, TouchableOpacity} from 'react-native'
 import { Icon } from 'react-native-elements';
+import { img } from './gallery/reusables';
 
 const Profile = ({navigation})=>{
     return(
@@ -22,20 +23,23 @@ const Profile = ({navigation})=>{
                </View>
                <View style={{width:'100%'}}>
                    <View style={{display:'flex',flexDirection:'row',padding:'1%'}}>
-                       <ImageBackground source={require('../assets/pretoria.png')} style={{width:150,height:150,padding:'2%',margin:'2%'}}>
-                           <Text style={{alignSelf:'flex-end',marginTop:'85%',color:'white'}}>Delete from History</Text>
-                       </ImageBackground>
-                       <ImageBackground source={require('../assets/sun.png')} style={{width:177,height:210,margin:'2%',borderRadius:70}}>
-                           <Text style={{alignSelf:'flex-end',marginTop:'95%',color:'white'}}>Delete from History</Text>
-                       </ImageBackground>
+                    
+                      <TouchableOpacity>
+                      <Image source={require('../assets/pretoria.png')} style={{width:180,height:150,padding:'2%',margin:'2%',borderRadius:40}}/>
+                      </TouchableOpacity>
+                      <TouchableOpacity>
+                      <Image source={img.hotel10} style={{width:175,height:180,padding:'2%',margin:'2%',borderRadius:20}}/>
+                      </TouchableOpacity>
+                     
                    </View>
                    <View style={{display:'flex',flexDirection:'row',padding:'1%'}}>
-                       <ImageBackground source={require('../assets/sandton.png')} style={{width:150,height:226,marginTop:'-15%',margin:'2%'}}>
-                           <Text style={{alignSelf:'flex-end',marginTop:'75%',color:'white'}}>Delete from History</Text>
-                       </ImageBackground>
-                       <ImageBackground source={require('../assets/palm.png')} style={{width:185,height:180,margin:'1%'}}>
-                           <Text style={{alignSelf:'flex-end',marginTop:'75%',color:'white'}}>Delete from History</Text>
-                       </ImageBackground>
+                       <TouchableOpacity>
+                       <Image source={require('../assets/sandton.png')} style={{width:180,height:226,marginTop:'-15%',margin:'2%',borderRadius:20}}>
+                       </Image>
+                       </TouchableOpacity>
+                       <TouchableOpacity>
+                           <Image  source={require('../assets/palm.png')} style={{width:180,height:180,margin:'1%',borderRadius:40}} />
+                           </TouchableOpacity>
                    </View>
                </View>
             </ScrollView>
@@ -77,7 +81,7 @@ const Styles = StyleSheet.create({
         marginBottom:'2%'
     },
     history:{
-        marginTop:'-9%',
+        marginTop:'-10%',
         backgroundColor:'#EBE9E9',
         // alignItems:'center',
         borderTopStartRadius:20,

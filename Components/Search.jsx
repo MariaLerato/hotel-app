@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground, ScrollView } from 'react-native'
 import Info from './info'
-import { Icon } from 'react-native-elements'
+import { Icon,Card } from 'react-native-elements'
 import SearchAlt from './searchAlt';
 import { navbars } from './gallery/reusables';
 
@@ -13,20 +13,23 @@ const Search = ({ navigation, route }) => {
     const dateIn = route.params.dateIn
     const dateOut = route.params.dateOut
 
+    
     const DisplayHotels = () => {
         return (
             <View>
-                <View style={{ display: 'flex', flexDirection: 'row' }}>
+                <View style={{ display: 'flex', flexDirection: 'row',marginLeft:'-1%' }}>
                     {SearchAlt.hotels.filter(data =>
                         data.province.includes(id)).map(action => (
-                            <View style={{ padding: '3%'}} key={action.id}>
-                                <ImageBackground source={action.image} style={{ width:170,height:180, borderRadius: 40,borderTopStartRadius:20 }}>
+                           <Card key={action.id} containerStyle={{borderRadius:10,padding:'1.5%',width:'42%'}}>
+                               <Card.Image source={action.image} style={{width:'100%',height:165}}>
                                     <TouchableOpacity onPress={() => navigation.navigate(action.nav,{number:name})} style={styles.hotelname}>
                                         <Text style={styles.loca}>{action.location}</Text>
                                         <Text style={styles.number}>{action.location.length} Hotels</Text>
                                     </TouchableOpacity>
-                                </ImageBackground>
-                            </View>
+                                
+
+                               </Card.Image>
+                           </Card>
                         ))}
                 </View>
             </View>
@@ -75,7 +78,7 @@ const Search = ({ navigation, route }) => {
                             </View>
                         </View>
                     </View>
-                    <TouchableOpacity style={styles.touchableOpacity}><Text style={styles.touchableText}>Search Hotels</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.touchableOpacity}><Text style={styles.touchableText}>Available Hotels</Text></TouchableOpacity>
                 </View>
                 <ScrollView>
                     <View style={{ marginTop: '-3%' }} >
@@ -84,7 +87,7 @@ const Search = ({ navigation, route }) => {
                             <TouchableOpacity onPress={() => navigation.navigate('hotels')}><Text style={styles.view}>View All</Text></TouchableOpacity>
                         </View>
 
-                        <View >
+                        <View style={{marginTop: '-3%'}} >
                             <DisplayHotels />
                         </View>
                     </View>
@@ -158,7 +161,7 @@ const styles = StyleSheet.create({
     },
     alarm: {
         marginTop: '12%',
-        marginLeft: '6%'
+        marginLeft: '10%'
 
     },
     container: {
@@ -167,9 +170,9 @@ const styles = StyleSheet.create({
 
     },
     destinationContainer: {
-        marginTop: '-37%',
+        marginTop: '-35%',
         backgroundColor: 'white',
-        margin: '4%',
+        margin: '5%',
         borderRadius: 10
     },
     padding: {
@@ -244,21 +247,21 @@ const styles = StyleSheet.create({
     },
     view: {
         color: '#B2B2B2',
-        fontSize: 19,
-        fontWeight: '700',
-        marginLeft: '4%'
+        fontSize: 20,
+        fontWeight: '600',
+        marginRight: '4%'
     },
     picContainer: {
         display: 'flex',
         flexDirection: 'row',
         marginLeft: '6%'
-        // justifyContent:'space-between'
+       
 
     },
     hotelname: {
         backgroundColor: 'white',
         borderRadius: 10,
-        marginTop: '45%',
+        marginTop: 'auto',
         height: '40%',
         margin: '8%',
         alignItems: 'center',
@@ -267,12 +270,12 @@ const styles = StyleSheet.create({
     },
     loca: {
         color: '#1C5248',
-        fontWeight: '700',
-        fontSize: 25
+        fontWeight: '600',
+        fontSize: 20
     },
     number: {
         color: '#B2B2B2',
-        fontSize: 18,
+        fontSize: 15,
         fontWeight: '700',
     },
     near: {
@@ -282,7 +285,8 @@ const styles = StyleSheet.create({
         margin: '2%',
         borderRadius: 10,
         padding: '2%'
-        , paddingLeft: '2%'
+        , paddingLeft: '2%',
+        marginTop:'auto'
     },
     neartext: {
         color: '#1C5248',

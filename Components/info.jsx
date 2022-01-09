@@ -1,5 +1,5 @@
 import React from 'react';
-import {img} from './gallery/reusables'
+import {img,navbars} from './gallery/reusables'
 
 
 class Info {
@@ -10,9 +10,9 @@ class Info {
     
 ]
 hotels=[{
-     id:'0',hotelname:' Hotel Sandton Sun',image:img.sand,review:'109 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',
+     id:'0',hotelname:' Hotel Sandton Sun',image:img.sand,review:'109 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.gauteng
 },   {id:'1',hotelname:'Sandton Star Hotel',image:img.limpopo,review:'19 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
-     {id:'2',hotelname:'Palms Hotel',image:require('../assets/palm.png'),review:'200 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
+     {id:'2',hotelname:'Palms Hotel', nav:navbars.gauteng, image:require('../assets/palm.png'),review:'200 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
      {id:'3',hotelname:'Luxury Hotel',image:require('../assets/RHP.png'),review:'109 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
      {id:'4',hotelname:'Hotel @ Hatfield',image:require('../assets/sandton.png'),review:'109 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
      {id:'5',hotelname:'Sheranton Hotel',image:require('../assets/sheranton.png'),review:'109 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
@@ -25,15 +25,15 @@ results=[
        
 ]
 pretoria =[{
-     id:'0',hotelname:'Hotel @ Hatfield',image:require('../assets/pretoria.png'),review:'100 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',
-},   {id:'1',hotelname:'RH Protea Hotel',image:require('../assets/hotel1.png'),review:'250 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
-     {id:'2',hotelname:'Maslow Hotel',image:require('../assets/maslow.png'),review:'20 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
-     {id:'3',hotelname:'Protea Luxury Hotel',image:require('../assets/lux.png'),review:'106 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
-     {id:'4',hotelname:'Hotel @ Hatfield',image:require('../assets/sandton.png'),review:'96 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
-     {id:'5',hotelname:'Sheranton Hotel',image:require('../assets/sheranton.png'),review:'30 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
+     id:'0',hotelname:'Hotel @ Hatfield',image:require('../assets/pretoria.png'),review:'100 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.pretoria
+},   {id:'1',hotelname:'RH Protea Hotel',image:require('../assets/hotel1.png'),review:'250 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.pretoria},
+     {id:'2',hotelname:'Maslow Hotel',image:require('../assets/maslow.png'),review:'20 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.pretoria},
+     {id:'3',hotelname:'Protea Luxury Hotel',image:require('../assets/lux.png'),review:'106 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.pretoria},
+     {id:'4',hotelname:'Hotel @ Hatfield',image:require('../assets/sandton.png'),review:'96 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.pretoria},
+     {id:'5',hotelname:'Sheranton Hotel',image:require('../assets/sheranton.png'),review:'30 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.pretoria},
 ]
 jbh =[{
-     id:'0',hotelname:'Signature Lux Hotel',image:require('../assets/lux.png'),review:'350 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'
+     id:'0',hotelname:'Signature Lux Hotel',image:require('../assets/lux.png'),review:'350 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.jhb
 },   {id:'1',hotelname:'Maslow Hotel',image:require('../assets/maslow.png'),review:'250 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
      {id:'2',hotelname:'Palms Hotel',image:require('../assets/palm.png'),review:'20 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
      {id:'3',hotelname:'Protea Luxury Hotel',image:require('../assets/lux.png'),review:'106 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
@@ -41,18 +41,18 @@ jbh =[{
      {id:'5',hotelname:'Sheranton Hotel',image:require('../assets/sheranton.png'),review:'30 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
 ]
 plk =[{
-     id:'0',hotelname:'Polokwane Suits',image:img.limpopo,review:'350 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'
-},   {id:'1',hotelname:'Park Hotel',image:require('../assets/maslow.png'),review:'250 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
-     {id:'2',hotelname:'Palms Hotel',image:require('../assets/palm.png'),review:'20 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
-     {id:'3',hotelname:'Geneva Hotel',image:require('../assets/lux.png'),review:'106 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
-     {id:'4',hotelname:'Hotel @ Hatfield',image:require('../assets/sandton.png'),review:'96 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
-     {id:'5',hotelname:'Sheranton Hotel',image:require('../assets/sheranton.png'),review:'30 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
+     id:'0',hotelname:'Polokwane Suits',image:img.limpopo,review:'350 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.room
+},   {id:'1',hotelname:'Park Hotel',image:require('../assets/maslow.png'),review:'250 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.room},
+     {id:'2',hotelname:'Palms Hotel',image:require('../assets/palm.png'),review:'20 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.room},
+     {id:'3',hotelname:'Geneva Hotel',image:require('../assets/lux.png'),review:'106 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.room},
+     {id:'4',hotelname:'Hotel @ Hatfield',image:require('../assets/sandton.png'),review:'96 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.room},
+     {id:'5',hotelname:'Sheranton Hotel',image:require('../assets/sheranton.png'),review:'30 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.room},
 ]
 venda =[{
-     id:'0',hotelname:'Marina Hotel',image:img.venda,review:'350 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'
-},   {id:'1',hotelname:'Maslow Hotel',image:require('../assets/maslow.png'),review:'250 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
-     {id:'2',hotelname:'Palms Hotel',image:require('../assets/palm.png'),review:'20 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
-     {id:'3',hotelname:'Protea Luxury Hotel',image:require('../assets/lux.png'),review:'106 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,'},
+     id:'0',hotelname:'Marina Hotel',image:img.venda,review:'350 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.room
+},   {id:'1',hotelname:'Maslow Hotel',image:require('../assets/maslow.png'),review:'250 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.room},
+     {id:'2',hotelname:'Palms Hotel',image:require('../assets/palm.png'),review:'20 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.room},
+     {id:'3',hotelname:'Protea Luxury Hotel',image:require('../assets/lux.png'),review:'106 Reviews',latitude:-26.358055,longitude:27.398056,description:' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna diam mattis mi eu tellus ut lobortis aliquam. Non,',nav:navbars.room},
 ]
 notify=[{
      id:'0',hotelname:'Signature Lux Hotel',image:require('../assets/lux.png'),message:'Your room is ready, you can go to the hotel to check in at the hotel.Please notify if you wish to cancel the booking on time'

@@ -104,6 +104,7 @@ const Home = ({ AddBooking,navigation }) => {
                                 left:0,
                                 top:4,
                                 marginLeft:0,
+                                
                                
                             },
                             dateInput:{

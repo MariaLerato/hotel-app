@@ -9,12 +9,13 @@ const Detail = ({ route, navigation }) => {
     const price = route.params.price
     const des = route.params.des
     const number = route.params.number
+    const main = route.params.main
 
 
     return (
         <>
          <View style={styles.container}>
-            <ImageBackground source={require('../../assets/pretoria.png')} style={{width:'100%',height:'70%'}}>
+            <ImageBackground source={main} style={{width:'100%',height:'70%'}}>
                 <View style={styles.head}>
                     <TouchableOpacity style={styles.back} onPress={()=>navigation.goBack()}>
                         <Icon name={'arrow-back'} color={'white'} />
@@ -59,7 +60,8 @@ const Detail = ({ route, navigation }) => {
                         name:id,
                         total:price,
                         about:des,
-                        number:number   
+                        number:number  ,
+                        main:main 
 
                     })} style={{backgroundColor:'#53B5A3',width:'95%',height:57,alignSelf:'center',justifyContent:'center',alignItems:'center',marginTop:'20%',borderRadius:10}}><Text style={{color:'white',fontSize:24,fontWeight:'700'}}>Book Now</Text></TouchableOpacity>
                 </ImageBackground>

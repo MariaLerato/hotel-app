@@ -11,14 +11,9 @@ import Alert from './Components/fundamentals/passwordAlert'
 import Home from './Components/home';
 import TabNavigator from './Components/bottomTab';
 import Hotels from './Components/hotels';
-
 import RoomA from './Components/gallery/roomA';
-import RoomB from './Components/gallery/roomB';
-import RoomC from './Components/gallery/roomC';
+import RoomB from './Components/gallery/other';
 import BathA from './Components/gallery/bathA';
-import BathB from './Components/gallery/bathB';
-import BathC from './Components/gallery/bathC';
-import Lounge from './Components/gallery/lounge';
 import Confirm from './Components/bookingDetails';
 import Search from './Components/Search';
 import PaymentMethod from './Components/payment/payment';
@@ -30,38 +25,32 @@ import Feedback from './Components/feedback';
 import Notification from './Components/notification';
 import SearchHistory from './Components/searchHistory';
 import EditProfile from './Components/editprofile';
-import Maps from './Components/map';
-import Landing from './practice/landing';
+import Maps from './Components/HotelMaps/map';
 import PretoriaHotels from './Components/hotelLocation/Pretoria/Pretoria';
 import SandtonHotels from './Components/hotelLocation/Sandton/sandton';
 import roomMenu from './Components/room/roomsMenu';
 import hotelroom from './Components/room/hotelrooms';
 import Detail from './Components/room/detail';
-import beachC from './Components/gallery/beach';
-import Lobby from './Components/gallery/lobby';
-import Bar from './Components/gallery/bar';
 import PolokwaneHotels from './Components/hotelLocation/limpopo/limpopo';
 import VendaHotels from './Components/hotelLocation/limpopo/venda';
+import DetailsHistory from './Components/BookingHisttory/historyDetails';
+import Limpoporooms from './Components/hotelLocation/limpopo/limpopoRooms';
 
 const Menu = ()=>{
       const Stack = createNativeStackNavigator()
     return(
         <NavigationContainer>
-            <Stack.Navigator initialRouteName={'SplashScreen'} screenOptions={{headerShown:false}}>
-             <Stack.Screen name={'SplashScreen'} component={SplashScreen} />
+            <Stack.Navigator initialRouteName={'bottomTab'} screenOptions={{headerShown:false}}>
+             {/* <Stack.Screen name={'SplashScreen'} component={SplashScreen} />
             <Stack.Screen name={'SignIn'} component={SignIn} />
              <Stack.Screen name={'WelcomeScreen'} component={WelcomeScreen} />
             <Stack.Screen name={'SignUp'} component={SignUp} />
             <Stack.Screen name={'resetpassword'} component={Reset} />
-            <Stack.Screen name={'passwordAlert'} component={Alert} />  
+            <Stack.Screen name={'passwordAlert'} component={Alert} />   */}
               <Stack.Screen name={'hotels'} component={Hotels}/> 
             <Stack.Screen name={'roomA'} component={RoomA}/>
-            <Stack.Screen name={'roomB'} component={RoomB}/>
-            <Stack.Screen name={'roomC'} component={RoomC}/>
+            <Stack.Screen name={'other'} component={RoomB}/>
             <Stack.Screen name={'bathA'} component={BathA}/>
-            <Stack.Screen name={'bathB'} component={BathB}/>
-            <Stack.Screen name={'bathC'} component={BathC}/>
-            <Stack.Screen name={'lounge'} component={Lounge}/>   
              <Stack.Screen name={'bookingDetails'} component={Confirm}/> 
              <Stack.Screen name={'payment'} component={PaymentMethod}/>
               <Stack.Screen name={'finalpayment'} component={ConfirmPayment}/> 
@@ -72,20 +61,18 @@ const Menu = ()=>{
              <Stack.Screen name={'notification'} component={Notification}/>
              <Stack.Screen name={'searchHistory'} component={SearchHistory}/>
              <Stack.Screen name={'editprofile'} component={EditProfile}/>
-                <Stack.Screen name={'landing'} component={Landing}/>
               <Stack.Screen name='detail' component={Detail}/> 
              <Stack.Screen name={'map'} component={Maps}/>  
             <Stack.Screen name={'Search'} component={Search}/> 
             <Stack.Screen name={'hotelrooms'} component={hotelroom}/>  
             <Stack.Screen name={'Pretoria'} component={PretoriaHotels}/>
             <Stack.Screen name={'sandton'} component={SandtonHotels}/>
-            <Stack.Screen name={'beach'} component={beachC}/>
-            <Stack.Screen name={'lobby'} component={Lobby}/>
-            <Stack.Screen name={'bar'} component={Bar}/>
             <Stack.Screen name={'bottomTab'} component={TabNavigator}/>
             <Stack.Screen name={'limpopo'} component={PolokwaneHotels}/>
             <Stack.Screen name={'roomsMenu'} component={roomMenu}/> 
             <Stack.Screen name={'venda'} component={VendaHotels}/>
+            <Stack.Screen name={'historyDetails'} component={DetailsHistory}/>
+            <Stack.Screen name={'limpopoRooms'} component={Limpoporooms}/>
             </Stack.Navigator>
         </NavigationContainer>
         

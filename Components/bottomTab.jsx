@@ -5,7 +5,7 @@ import {Icon} from 'react-native-elements'
 import Search from './Search'
 
 import Profile from './profile'
-import MyBookings from './myBookings'
+import MyBookings from './BookingHisttory/myBookings'
 
 const TabNavigator=()=>{
     const Tab = createBottomTabNavigator()

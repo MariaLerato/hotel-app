@@ -7,6 +7,7 @@ const Confirm = ({navigation,route})=>{
     const total = route.params.total
     const about = route.params.about
     const number = route.params.number
+    const main = route.params.main
     let price = number * total
     const TotalPrice = ()=>{
      
@@ -26,7 +27,7 @@ const Confirm = ({navigation,route})=>{
             <Text style={Styles.textHead}>Booking</Text>
         </View>
         <View style={{alignItems:'center',padding:'3%',borderRadius:20}}>
-            <ImageBackground source={require('../assets/pretoria.png')} style={{width:'100%',height:200,borderRightRadius:50}}>
+            <ImageBackground source={main} style={{width:'100%',height:200,borderRightRadius:50}}>
                 <View style={Styles.textContainer}>
                     <Text style={{color:'#C4C4C4',fontSize:20}}>JI, Makua -Johannesburg</Text>
                     <Text style={{color:'#1C5248',fontSize:22,fontWeight:'700'}}>Hotel Sandton Sun, {name}</Text>

@@ -2,10 +2,10 @@ import React from 'react';
 import {View,Text,} from 'react-native'
 import MapView,{Marker,Callout} from 'react-native-maps'
 import CallOut from './box';
-
+import location from './location';
+import { img } from '../gallery/reusables';
 const Maps = ({data,route})=>{
-    const lati = route.params.lati
-    const longi = route.params.longi
+   
     return(
         <>
             <MapView
@@ -23,8 +23,8 @@ const Maps = ({data,route})=>{
            >
                  <Marker 
                     coordinate={{
-                        latitude:lati,
-                        longitude:longi,
+                        latitude:location.sandLat,
+                        longitude:location.sandLon,
                     }}
                     identifier='Hotel'
                 >

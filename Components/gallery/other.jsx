@@ -1,11 +1,12 @@
 import React from 'react';
 import {View,Image,Text,TouchableOpacity,StyleSheet,ImageBackground} from 'react-native'
 
-const RoomB = ({navigation})=>{
+const RoomB = ({navigation,route})=>{
+    const pic = route.params.pic
     return(
-        <TouchableOpacity onPress={()=>navigation.navigate('bathB')} style={styles.container}>
-        <ImageBackground source={require('../../assets/firePlace.png')} style={{width:'100%',height:'100%'}}>
-            <Text style={styles.text}>1/3</Text>
+        <TouchableOpacity onPress={()=>navigation.goBack()} style={styles.container}>
+        <ImageBackground source={pic} style={{width:'100%',height:'100%'}}>
+            <Text style={styles.text}>3/3</Text>
         </ImageBackground>
         </TouchableOpacity>
     )

@@ -19,7 +19,8 @@ const SandtonHotels = ({navigation,route})=>{
                     <>
                         <View style={{flex:1,display:'flex',flexDirection:'row',justifyContent:'space-between',padding:'2%'}} key={data.id}>
                             <TouchableOpacity onPress={()=>navigation.navigate('hotelrooms',{
-                                number:number
+                                number:number,
+                                main:data.image
                             })} >
                             <Image
                             source={data.image}

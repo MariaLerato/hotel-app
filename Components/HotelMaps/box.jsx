@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
-import info from './info'
+import info from '../info'
 import { Avatar,Icon } from 'react-native-elements'
 
 const CallOut = ({ data }) => {

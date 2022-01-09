@@ -1,22 +1,20 @@
 import React from 'react';
-import { View, Text, ScrollView, ImageBackground, Image, StyleSheet, TouchableOpacity } from 'react-native'
+import {View,Text,ScrollView,TouchableOpacity,StyleSheet,Image} from 'react-native'
 import { Icon } from 'react-native-elements';
-import HotelRooms from './maping'
+import HotelRooms from '../../room/maping'
 
-const hotelroom = ({ navigation,route }) => {
+const  Limpoporooms = ({ navigation,route }) => {
  const number = route.params.number
  const main = route.params.main
- 
     return (
         <ScrollView style={Styles.container} >
-
             <View style={Styles.header}>
                 <Icon name={'arrow-back'} color={'#1C5248'} style={{ fontWeight: '700', marginTop: '17%' }} onPress={() => navigation.goBack()} />
                 <Text style={Styles.textHead}>Our Rooms</Text>
             </View>
             <View>
                 {
-                    HotelRooms.roomNumbers.map(data =>
+                    HotelRooms.jhb.map(data =>
                         <View key={data.id}>
                             <View style={Styles.subHead}>
                                 <TouchableOpacity onPress={() => navigation.navigate('detail',{
@@ -101,6 +99,7 @@ const Styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         width: '60%',
+      justifyContent:'flex-start'
     },
     text: {
         width: '60%',
@@ -113,5 +112,4 @@ const Styles = StyleSheet.create({
     }
 
 })
-
-export default hotelroom
+export default Limpoporooms
