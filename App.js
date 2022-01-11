@@ -40,7 +40,7 @@ const Menu = ()=>{
       const Stack = createNativeStackNavigator()
     return(
         <NavigationContainer>
-            <Stack.Navigator initialRouteName={'bottomTab'} screenOptions={{headerShown:false}}>
+            <Stack.Navigator initialRouteName={'SplashScreen'} screenOptions={{headerShown:false}}>
              <Stack.Screen name={'SplashScreen'} component={SplashScreen} />
             <Stack.Screen name={'SignIn'} component={SignIn} />
              <Stack.Screen name={'WelcomeScreen'} component={WelcomeScreen} />

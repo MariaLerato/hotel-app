@@ -3,7 +3,7 @@ import {View,Text,SafeAreaView,Image,StyleSheet,TouchableOpacity} from "react-na
 
 const WelcomeScreen = ({navigation}) =>{
     return(
-        <>
+        <View style={{flex:1}}>
          <View style={styles.WelcomeContainer}>
             
         </View>
@@ -13,7 +13,7 @@ const WelcomeScreen = ({navigation}) =>{
             <Text style={styles.subtext}>Control Where You Spend Your Holiday</Text>
             <TouchableOpacity style={styles.touchableOpacity} onPress={()=>navigation.navigate('SignIn')}><Text style={styles.touchableText}>Get Started</Text></TouchableOpacity>
         </View>
-        </>
+        </View>
      
 
     )
@@ -26,12 +26,12 @@ const styles = StyleSheet.create({
     },
     welcomeImage:{
         height:370,
-        marginTop:'-80%',
+        marginTop:'-60%',
         width:270,
 
     },
     second:{
-        alignItems:'center'
+        alignItems:'center',
     },
     welcomeText:{
         paddingTop:'2%',

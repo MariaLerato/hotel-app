@@ -20,16 +20,15 @@ const Search = ({ navigation, route }) => {
                 <View style={{ display: 'flex', flexDirection: 'row',marginLeft:'-1%' }}>
                     {SearchAlt.hotels.filter(data =>
                         data.province.includes(id)).map(action => (
-                           <Card key={action.id} containerStyle={{borderRadius:10,padding:'1.5%',width:'42%'}}>
-                               <Card.Image source={action.image} style={{width:'100%',height:165}}>
-                                    <TouchableOpacity onPress={() => navigation.navigate(action.nav,{number:name})} style={styles.hotelname}>
-                                        <Text style={styles.loca}>{action.location}</Text>
-                                        <Text style={styles.number}>{action.location.length} Hotels</Text>
-                                    </TouchableOpacity>
-                                
-
-                               </Card.Image>
-                           </Card>
+                        <View style={{padding:'3%'}} >
+                                <ImageBackground source={action.image} style={{width:180,height:165,overflow:'hidden',borderRadius:20,borderWidth:1,borderColor:'white'}}>
+                                <TouchableOpacity  onPress={() => navigation.navigate(action.nav,{number:name})} style={styles.hotelname}>
+                                <Text style={styles.loca}>{action.location}</Text>
+                                    <Text style={styles.number}>{action.location.length} Hotels</Text>
+                                </TouchableOpacity>
+                            </ImageBackground>
+                        </View>
+                           
                         ))}
                 </View>
             </View>
@@ -51,9 +50,9 @@ const Search = ({ navigation, route }) => {
                                         </Text>
                                         <Text style={styles.find}>Find The Best Hotel</Text>
                                     </View>
-                                    <View style={styles.alarm}>
+                                    <TouchableOpacity style={styles.alarm} onPress={()=>navigation.navigate('notification')}>
                                         <Icon name={'bell'} type="font-awesome" size={18} color='white' />
-                                    </View>
+                                    </TouchableOpacity>
                                 </View>
                             </View>
                         )
@@ -131,8 +130,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     Image: {
-        height: 90,
-        width: 90,
+        height: 60,
+        width: 60,
         borderRadius: 50,
         borderWidth: 3,
         borderColor: 'white',
@@ -141,18 +140,17 @@ const styles = StyleSheet.create({
     ImageContainer: {
         display: 'flex',
         flexDirection: 'row',
-        marginTop: '-30%'
+        marginTop: '-25%'
 
     },
     name: {
         color: 'white',
-        marginTop: '4%',
-        padding: '2%'
+        marginTop: '3%',
+        padding: '2%',
     },
     profilename: {
         color: 'white',
-        fontSize: 16
-
+        fontSize: 16,marginTop:'-6%'
     },
     find: {
         color: 'white',
@@ -160,8 +158,8 @@ const styles = StyleSheet.create({
         fontWeight: '700'
     },
     alarm: {
-        marginTop: '12%',
-        marginLeft: '10%'
+        marginTop: '5%',
+        marginLeft: '20%'
 
     },
     container: {

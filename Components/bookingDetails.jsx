@@ -21,13 +21,13 @@ const Confirm = ({navigation,route})=>{
     console.log('Total',TotalPrice)
     
     return(
-        <View style={{marginTop:'10%'}}>
-        <View style={Styles.header}>
-            <Icon name={'arrow-back'} color={'#1C5248'} style={{fontWeight:'700',marginTop:'20%'}} onPress={()=>navigation.goBack()} />
+        <View style={{marginTop:'5%',flex:1}}>
+        <TouchableOpacity style={Styles.header} onPress={()=>navigation.goBack()}>
+            <Icon name={'arrow-back'} color={'#1C5248'} style={{fontWeight:'700'}}  />
             <Text style={Styles.textHead}>Booking</Text>
-        </View>
-        <View style={{alignItems:'center',padding:'3%',borderRadius:20}}>
-            <ImageBackground source={main} style={{width:'100%',height:200,borderRightRadius:50}}>
+        </TouchableOpacity>
+        <View style={{alignItems:'center',padding:'2%',borderRadius:20,paddingTop:'-2%'}}>
+            <ImageBackground source={main} style={{width:'100%',height:200,borderRadius:40,overflow:'hidden'}}>
                 <View style={Styles.textContainer}>
                     <Text style={{color:'#C4C4C4',fontSize:20}}>JI, Makua -Johannesburg</Text>
                     <Text style={{color:'#1C5248',fontSize:22,fontWeight:'700'}}>Hotel Sandton Sun, {name}</Text>
@@ -91,7 +91,7 @@ const Confirm = ({navigation,route})=>{
                     </Text>
                 </View>
             </View>
-            <View style={{display:'flex',flexDirection:'row',margin:'2%',width:'100%'}}>
+            <View style={{display:'flex',flexDirection:'row',margin:'2%',width:'100%',marginBottom:'2%'}}>
                 <TouchableOpacity style={{  backgroundColor:'#75BFB2',margin:'2%',width:'50%',height:60,justifyContent:'center',borderRadius:10}} onPress={()=>navigation.navigate('payment',{
                     Totalprice:price,
                     Roomname:name,
@@ -109,12 +109,12 @@ const Styles = StyleSheet.create({
     header:{
         display:'flex',
         flexDirection:'row',
-        padding:'2%'
+        padding:'2%',marginTop:'1%'
       },
     textHead:{
         color:'#1C5248',
         fontSize:24,
-        paddingLeft:'15%',
+        paddingLeft:'18%',
         fontWeight:'700',
       
       },

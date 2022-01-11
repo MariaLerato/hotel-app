@@ -52,7 +52,7 @@ const SignIn = ({ navigation }) => {
             >
                 {({ errors, handleBlur, handleChange, handleSubmit, values, touched
                 }) => (
-                    <View>
+                    <View style={{flex:1}}>
                         <View style={styles.SignInContainer}>
                             <Text style={styles.WelcomeText}>Welcome!</Text>
                         </View>
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     },
     Sign: {
         backgroundColor: '#FFFFFF',
-        marginTop: '-10%',
+        marginTop: '-8%',
         borderTopEndRadius: 40,
         borderTopStartRadius: 40,
         height: '100%',

@@ -47,27 +47,20 @@ const Detail = ({ route, navigation }) => {
                 {des}
                 </Text>
                 <Text style={styles.subText}>
-                    On Map
+                 On Map
                 </Text>
-              {
-                  Info.pretoria.map(action=>
-                    <TouchableOpacity key={action.id} onPress={()=>navigation.navigate('map',{
-                        lati:action.latitude,
-                        longi:action.longitude
-                    })} >
+                <TouchableOpacity>
                     <ImageBackground source={require('../../assets/map.png')} style={{width:344,height:150,alignSelf:'center',marginTop:'5%',borderRadius:20}}>
-                    <TouchableOpacity onPress={()=>navigation.navigate('bookingDetails',{
-                        name:id,
-                        total:price,
-                        about:des,
-                        number:number  ,
-                        main:main 
-
-                    })} style={{backgroundColor:'#53B5A3',width:'95%',height:57,alignSelf:'center',justifyContent:'center',alignItems:'center',marginTop:'20%',borderRadius:10}}><Text style={{color:'white',fontSize:24,fontWeight:'700'}}>Book Now</Text></TouchableOpacity>
-                </ImageBackground>
-                </TouchableOpacity>)
-              } 
-                    
+                        <TouchableOpacity  onPress={()=>navigation.navigate('bookingDetails',{
+                            name:id,
+                            total:price,
+                            about:des,
+                            number:number  ,
+                            main:main 
+                        })} style={{backgroundColor:'#53B5A3',width:'98%',height:57,alignSelf:'center',justifyContent:'center',alignItems:'center',marginTop:'auto',borderRadius:10,marginBottom:'1%'}}>
+                            <Text style={{color:'white',fontSize:24,fontWeight:'700'}}>Book Now</Text></TouchableOpacity>
+                    </ImageBackground>
+                </TouchableOpacity> 
             </View>
         </View>
 
