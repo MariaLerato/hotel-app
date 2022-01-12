@@ -35,13 +35,14 @@ import PolokwaneHotels from './Components/hotelLocation/limpopo/limpopo';
 import VendaHotels from './Components/hotelLocation/limpopo/venda';
 import DetailsHistory from './Components/BookingHisttory/historyDetails';
 import Limpoporooms from './Components/hotelLocation/limpopo/limpopoRooms';
+import LogIn from './Components/mongodbPractice/signIn';
 
 const Menu = ()=>{
       const Stack = createNativeStackNavigator()
     return(
         <NavigationContainer>
             <Stack.Navigator initialRouteName={'SplashScreen'} screenOptions={{headerShown:false}}>
-             <Stack.Screen name={'SplashScreen'} component={SplashScreen} />
+             {/* <Stack.Screen name={'SplashScreen'} component={SplashScreen} />
             <Stack.Screen name={'SignIn'} component={SignIn} />
              <Stack.Screen name={'WelcomeScreen'} component={WelcomeScreen} />
             <Stack.Screen name={'SignUp'} component={SignUp} />
@@ -72,7 +73,8 @@ const Menu = ()=>{
             <Stack.Screen name={'roomsMenu'} component={roomMenu}/> 
             <Stack.Screen name={'venda'} component={VendaHotels}/>
             <Stack.Screen name={'historyDetails'} component={DetailsHistory}/>
-            <Stack.Screen name={'limpopoRooms'} component={Limpoporooms}/>
+            <Stack.Screen name={'limpopoRooms'} component={Limpoporooms}/> */}
+            <Stack.Screen name={'signIn'} component={LogIn}/>
             </Stack.Navigator>
         </NavigationContainer>
         
