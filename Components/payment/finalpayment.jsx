@@ -3,13 +3,8 @@ import {View,Text,Image,TouchableOpacity,StyleSheet} from 'react-native'
 import { Icon } from 'react-native-elements';
 
 const ConfirmPayment = ({navigation,route})=>{
-    const number = route.params.number
-    const name = route.params.name
-    const date = route.params.date
-    const cvv = route.params.cvv
-    const price = route.params.price
-    const Room = route.params.Room
-    const guests = route.params.guests
+
+    const {hotelname,date,name,number,cvv,price,guests,Room} = route.params
     
     const PaymentCard = ()=>{
         return(
@@ -17,7 +12,7 @@ const ConfirmPayment = ({navigation,route})=>{
                 <View style={{display:'flex',flexDirection:'row',justifyContent:'space-between',marginTop:'2%'}}>
                     <View style={{color:'white',padding:'4%',fontSize:25}}>
                         <Text style={{color:'white',fontSize:25}}>{name}</Text>
-                        <Text  style={{color:'white',fontSize:17,paddingTop:'2%',paddingLeft:'1%',fontWeight:'100'}} >{number}</Text>
+                        <Text  style={{color:'#C4C4C4',fontSize:17,paddingTop:'2%',paddingLeft:'4%',fontWeight:'100'}} >{number}</Text>
                     </View>
                     <View style={{display:'flex',flexDirection:'row',marginTop:'8%',marginRight:'4%'}}>
                         <View style={{borderRadius:40,backgroundColor:'#5190f5',width:40,height:40,marginRight:'-14%'}}></View>
@@ -47,7 +42,7 @@ const ConfirmPayment = ({navigation,route})=>{
         <View style={Styles.header}>
                 <Icon name={'arrow-back'} color={'#C4C4C4'} style={{ fontWeight: '700', marginTop: '20%' }} onPress={() => navigation.goBack()} />
                 <Text style={Styles.textHead}>Payment </Text>
-                <TouchableOpacity style={{alignItems:'center',alignSelf:'flex-end',width:'25%',marginLeft:'4%',marginTop:'0%'}} onPress={()=>navigation.navigate('payment')}><Text  style={{color:'#61B0A2',fontSize:20,paddingLeft:'10%'}} >Add New</Text></TouchableOpacity>
+               
             </View>
             <View style={{ padding: '2%' }}>
                 <PaymentCard />
@@ -63,7 +58,7 @@ const ConfirmPayment = ({navigation,route})=>{
             <View style={{borderBottomWidth:1,borderBottomColor:'#C4C4C4',display:'flex',flexDirection:'row',width:'100%',justifyContent:'space-between',padding:'2%'}}>
                 <View>
                     <Text style={{color:'#C4C4C4',fontSize:18}}>JI,Makua - Johannesburg</Text>
-                    <Text style={{ color:'#1C5248',fontWeight:'700',paddingLeft:'2%',fontSize:20}}>Hotel Sandton Sun, {Room}</Text>
+                    <Text style={{ color:'#1C5248',fontWeight:'700',paddingLeft:'2%',fontSize:20}}>{hotelname}, {Room}</Text>
                 </View>
                
             </View>
@@ -105,7 +100,7 @@ const Styles = StyleSheet.create({
     textHead: {
         color: '#1C5248',
         fontSize: 24,
-        paddingLeft: '10%',
+        paddingLeft: '2%',
         fontWeight: '600',
         marginTop: '-1%',
         marginLeft:'15%'

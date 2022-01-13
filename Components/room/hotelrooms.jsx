@@ -4,8 +4,8 @@ import { Icon } from 'react-native-elements';
 import HotelRooms from './maping'
 
 const hotelroom = ({ navigation,route }) => {
- const number = route.params.number
- const main = route.params.main
+ const {number,main,name,longitude,latitude} = route.params
+ 
  
     return (
         <ScrollView style={Styles.container} >
@@ -24,7 +24,10 @@ const hotelroom = ({ navigation,route }) => {
                                     price:data.price,
                                     des:data.description,
                                     number:number,
-                                    main:main
+                                    main:main,
+                                    name:name,
+                                    longitude:longitude,
+                                    latitude:latitude
                                 })}>
                                     <Text style={Styles.RoomHead}>
                                         {data.name}

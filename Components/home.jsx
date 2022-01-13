@@ -5,7 +5,7 @@ import Info from './info';
 import DatePicker from 'react-native-datepicker'
 import * as Yup from 'yup'
 import { Formik } from 'formik';
-
+import ProfilePicture from 'react-native-profile-picture'
 
 const Home = ({ AddBooking,navigation }) => {
     const [open,setOpen] = useState(true)
@@ -52,7 +52,14 @@ const Home = ({ AddBooking,navigation }) => {
                             <Text style={{ color: '#6E9B93', fontSize: 14, paddingLeft: '1%' }}>Where do you want to stay?</Text>
                         </View>
 
-                        <Image source={data.img} style={styles.profile} />
+                        <ProfilePicture
+                    isPicture={true}
+                    requirePicture={require('../assets/users.jpeg')}
+                    shape='circle'
+                    pictureResizeMode='cover'
+                    pictureStyle={styles.profile}
+                
+                />
 
                     </View>
                 )}

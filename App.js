@@ -41,13 +41,13 @@ const Menu = ()=>{
       const Stack = createNativeStackNavigator()
     return(
         <NavigationContainer>
-            <Stack.Navigator initialRouteName={'SplashScreen'} screenOptions={{headerShown:false}}>
+            <Stack.Navigator initialRouteName={'bottomTab'} screenOptions={{headerShown:false}}>
              {/* <Stack.Screen name={'SplashScreen'} component={SplashScreen} />
             <Stack.Screen name={'SignIn'} component={SignIn} />
              <Stack.Screen name={'WelcomeScreen'} component={WelcomeScreen} />
             <Stack.Screen name={'SignUp'} component={SignUp} />
             <Stack.Screen name={'resetpassword'} component={Reset} />
-            <Stack.Screen name={'passwordAlert'} component={Alert} />  
+            <Stack.Screen name={'passwordAlert'} component={Alert} />   */}
               <Stack.Screen name={'hotels'} component={Hotels}/> 
             <Stack.Screen name={'roomA'} component={RoomA}/>
             <Stack.Screen name={'other'} component={RoomB}/>
@@ -73,7 +73,7 @@ const Menu = ()=>{
             <Stack.Screen name={'roomsMenu'} component={roomMenu}/> 
             <Stack.Screen name={'venda'} component={VendaHotels}/>
             <Stack.Screen name={'historyDetails'} component={DetailsHistory}/>
-            <Stack.Screen name={'limpopoRooms'} component={Limpoporooms}/> */}
+            <Stack.Screen name={'limpopoRooms'} component={Limpoporooms}/>
             <Stack.Screen name={'signIn'} component={LogIn}/>
             </Stack.Navigator>
         </NavigationContainer>

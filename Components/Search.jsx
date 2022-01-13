@@ -3,15 +3,13 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground, Scrol
 import Info from './info'
 import { Icon,Card } from 'react-native-elements'
 import SearchAlt from './searchAlt';
+import ProfilePicture from 'react-native-profile-picture'
 import { navbars } from './gallery/reusables';
 
 
 const Search = ({ navigation, route }) => {
-    const id = route.params.id
-    const name = route.params.name
-    const status = route.params.status
-    const dateIn = route.params.dateIn
-    const dateOut = route.params.dateOut
+   
+    const {id,name,status,dateIn,dateOut} = route.params
 
     
     const DisplayHotels = () => {
@@ -34,8 +32,9 @@ const Search = ({ navigation, route }) => {
             </View>
         )
     }
+  
     return (
-        <>
+        <View style={{flex:1}}>
             <View style={styles.HeaderContainer}>
                 <View>
                     {
@@ -43,7 +42,14 @@ const Search = ({ navigation, route }) => {
                             <View key={action.id}>
 
                                 <View style={styles.ImageContainer}>
-                                    <Image source={action.img} style={styles.Image} />
+                                <ProfilePicture
+                    isPicture={true}
+                    requirePicture={require('../assets/users.jpeg')}
+                    shape='circle'
+                    pictureResizeMode='cover'
+                    pictureStyle={styles.Image}
+                
+                />
                                     <View style={styles.name}>
                                         <Text style={styles.profilename}>
                                             {action.name} {action.surname}
@@ -119,7 +125,7 @@ const Search = ({ navigation, route }) => {
             </View>
         </ScrollView>
             </View >
-        </>
+        </View>
     )
 }
 const styles = StyleSheet.create({
@@ -168,7 +174,7 @@ const styles = StyleSheet.create({
 
     },
     destinationContainer: {
-        marginTop: '-35%',
+        marginTop: '-40%',
         backgroundColor: 'white',
         margin: '5%',
         borderRadius: 10

@@ -3,11 +3,7 @@ import {View,Text,ImageBackground,StyleSheet, TouchableOpacity} from 'react-nati
 import { Icon } from 'react-native-elements';
 
 const Confirm = ({navigation,route})=>{
-    const name = route.params.name
-    const total = route.params.total
-    const about = route.params.about
-    const number = route.params.number
-    const main = route.params.main
+    const {name,main,number,total,hotelname} = route.params
     let price = number * total
     const TotalPrice = ()=>{
      
@@ -21,46 +17,36 @@ const Confirm = ({navigation,route})=>{
     console.log('Total',TotalPrice)
     
     return(
-        <View style={{marginTop:'5%',flex:1}}>
+        <View style={{marginTop:'10%',flex:1}}>
         <TouchableOpacity style={Styles.header} onPress={()=>navigation.goBack()}>
             <Icon name={'arrow-back'} color={'#1C5248'} style={{fontWeight:'700'}}  />
             <Text style={Styles.textHead}>Booking</Text>
         </TouchableOpacity>
         <View style={{alignItems:'center',padding:'2%',borderRadius:20,paddingTop:'-2%'}}>
-            <ImageBackground source={main} style={{width:'100%',height:200,borderRadius:40,overflow:'hidden'}}>
+            <ImageBackground source={main} style={{width:'100%',height:200,borderRadius:20,overflow:'hidden'}}>
                 <View style={Styles.textContainer}>
                     <Text style={{color:'#C4C4C4',fontSize:20}}>JI, Makua -Johannesburg</Text>
-                    <Text style={{color:'#1C5248',fontSize:22,fontWeight:'700'}}>Hotel Sandton Sun, {name}</Text>
+                    <Text style={{color:'#1C5248',fontSize:22,fontWeight:'700'}}>{hotelname}, {name}</Text>
                 </View>
             </ImageBackground>
-            <View style={{alignItems:'flex-start',width:'100%'}}>
-                <Text style={{color:'#A9A3A3',alignSelf:'center',fontSize:22,width:'100%'}}>Facility</Text>
+            <View style={{alignItems:'flex-start',width:'100%',marginTop:'4%',padding:'2%'}}>
+                <Text style={{color:'#C4C4C4',alignSelf:'center',fontSize:20,width:'100%'}}>Facility</Text>
             </View>
             
-            <View style={{display:'flex',flexDirection:'row',width:'100%',alignSelf:'center',padding:'4%'}}>
-               
-                <View style={{display:'flex',flexDirection:'row',}}>
-                  <Icon name={'wifi'} size={28} color='#1C5248' />
-                  <Text style={{color:'#1C5248',fontSize:18,paddingLeft:'2%'}}>Free Wifi</Text>
-                </View>
-                <View style={{display:'flex',flexDirection:'row',paddingLeft:'6%'}}>
-                    <Icon name={'bath'} type={'font-awesome'}  color='#1C5248'/>
-                    <Text style={{color:'#1C5248',fontSize:18,paddingLeft:'2%'}}>Bathtub</Text>
-                </View>
-                <View style={{display:'flex',flexDirection:'row',paddingLeft:'6%'}}>
-                    <Icon name={'tv'}  color='#1C5248'/>
-                    <Text style={{color:'#1C5248',fontSize:18,paddingLeft:'2%'}}>TV</Text>
-                </View>
-            </View>
-            <View style={{borderBottomWidth:1,borderBottomColor:'#C4C4C4',width:'100%',display:'flex',flexDirection:'row'}}>
-                <View style={{display:'flex',flexDirection:'row',padding:'2%'}}>
-                    <Icon name={'bread-slice'} type={'font-awesome-5'}  color='#1C5248'/>
-                    <Text style={{color:'#1C5248',fontSize:18,paddingLeft:'2%'}}>Free Breakfast</Text>
-                </View>
-                <View style={{display:'flex',flexDirection:'row',padding:'2%'}}>
-                    <Icon name={'swimming-pool'} type={'font-awesome-5'}  color='#1C5248'/>
-                    <Text style={{color:'#1C5248',fontSize:18,paddingLeft:'2%'}}>Outdoor Pool</Text>
-                </View>
+            <View style={{display:'flex',flexDirection:'row',alignContent:'flex-start'}}>
+                    <View>
+                    <Icon name={'wifi'} size={28} color='#1C5248' style={{marginLeft:'-18%'}} />
+                    <Text style={{color:'#C4C4C4',fontSize:15,width:'70%',textAlign:'center',}}>Unlimited Wifi</Text>
+                    </View>
+                    <View >
+                    <Icon name={'bath'} type={'font-awesome'}  color='#1C5248' style={{marginLeft:'-25%'}} />
+                    <Text style={{color:'#C4C4C4',fontSize:15,width:'60%',textAlign:'center'}}>Personal Bathroom</Text>
+                    </View>
+                   <View style={{marginLeft:'-8%'}}>
+                   <Icon name={'swimming-pool'} type={'font-awesome-5'}  color='#1C5248' style={{marginLeft:'-18%'}} />
+                   <Text style={{color:'#C4C4C4',fontSize:15,width:'70%',textAlign:'center',}}> Swimming Pool</Text>
+                   </View>
+                 
             </View>
             <View style={{borderBottomWidth:1,borderBottomColor:'#C4C4C4',display:'flex',flexDirection:'row',width:'100%',justifyContent:'space-between',padding:'2%'}}>
                 <View>
@@ -82,7 +68,7 @@ const Confirm = ({navigation,route})=>{
             <View style={{display:'flex',flexDirection:'row',width:'100%',justifyContent:'space-between',padding:'2%'}}>
                 <View>
                     <Text style={{color:'#C4C4C4',fontSize:18}}>Total Price</Text>
-                    <Text style={{ color:'#1C5248',fontWeight:'700',paddingLeft:'2%'}}>9xNights, {number} Rooms</Text>
+                    <Text style={{ color:'#1C5248',fontWeight:'700',paddingLeft:'2%'}}>Nights, {number} Rooms</Text>
                 </View>
                 <View style={{marginTop:'7%'}} >
                    
@@ -96,9 +82,10 @@ const Confirm = ({navigation,route})=>{
                     Totalprice:price,
                     Roomname:name,
                     Guestnumber:number,
+                    hotelname:hotelname
 
                 })}><Text style={{color:'white',fontSize:20,alignSelf:'center',fontWeight:'700'}}>Confirm Booking</Text></TouchableOpacity>
-                <TouchableOpacity style={{ backgroundColor:'#75BFB2',margin:'2%',width:'40%',justifyContent:'center',borderRadius:10}} onPress={()=>navigation.navigate('booking')}><Text style={{color:'white',fontSize:20,alignSelf:'center',fontWeight:'700'}}>Cancel</Text></TouchableOpacity>
+                <TouchableOpacity style={{ backgroundColor:'#75BFB2',margin:'2%',width:'40%',justifyContent:'center',borderRadius:10,marginLeft:'6%'}} onPress={()=>navigation.navigate('booking')}><Text style={{color:'white',fontSize:20,alignSelf:'center',fontWeight:'700'}}>Cancel</Text></TouchableOpacity>
             </View>
 
         </View>
@@ -114,8 +101,9 @@ const Styles = StyleSheet.create({
     textHead:{
         color:'#1C5248',
         fontSize:24,
-        paddingLeft:'18%',
+        paddingLeft:'5%',
         fontWeight:'700',
+        marginBottom:'1%'
       
       },
       textContainer:{

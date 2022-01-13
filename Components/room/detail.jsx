@@ -5,11 +5,8 @@ import { date } from 'yup';
 import Info from '../info';
 
 const Detail = ({ route, navigation }) => {
-    const id = route.params.id
-    const price = route.params.price
-    const des = route.params.des
-    const number = route.params.number
-    const main = route.params.main
+
+    const {name,main,number,des,price,id,longitude,latitude } = route.params
 
 
     return (
@@ -28,11 +25,11 @@ const Detail = ({ route, navigation }) => {
             <View style={styles.name}>
                <View>
                    <Text style={styles.title}>
-                       Hotel Sandton Sun
+                     {name}
                    </Text>
                    <Text style={styles.sub}>{id}</Text>
                    <Text style={styles.price}>Price</Text>
-                   <Text style={styles.type}>{price}/Night</Text>
+                   <Text style={styles.type}>R {price}/Night</Text>
                </View>
                <View>
                    <Icon name={'star'} type={'font-awesome'} color={'#FAA455'}/>
@@ -49,14 +46,20 @@ const Detail = ({ route, navigation }) => {
                 <Text style={styles.subText}>
                  On Map
                 </Text>
-                <TouchableOpacity>
-                    <ImageBackground source={require('../../assets/map.png')} style={{width:344,height:150,alignSelf:'center',marginTop:'5%',borderRadius:20}}>
+                <TouchableOpacity onPress={()=>navigation.navigate('map',{
+                    longitude:longitude,
+                    latitude:latitude,
+                    hotelname:name,
+                    price:price
+                })}>
+                    <ImageBackground source={require('../../assets/map.png')} style={{width:344,height:150,alignSelf:'center',marginTop:'5%',borderRadius:20,overflow:'hidden'}}>
                         <TouchableOpacity  onPress={()=>navigation.navigate('bookingDetails',{
                             name:id,
                             total:price,
                             about:des,
                             number:number  ,
-                            main:main 
+                            main:main ,
+                            hotelname:name
                         })} style={{backgroundColor:'#53B5A3',width:'98%',height:57,alignSelf:'center',justifyContent:'center',alignItems:'center',marginTop:'auto',borderRadius:10,marginBottom:'1%'}}>
                             <Text style={{color:'white',fontSize:24,fontWeight:'700'}}>Book Now</Text></TouchableOpacity>
                     </ImageBackground>

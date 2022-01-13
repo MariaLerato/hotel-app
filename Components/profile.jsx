@@ -2,15 +2,24 @@ import React from 'react';
 import { View, Text, Image, ImageBackground, ScrollView, StyleSheet, TouchableOpacity, Avatar } from 'react-native'
 import { Icon } from 'react-native-elements';
 import { img } from './gallery/reusables';
+import ProfilePicture from 'react-native-profile-picture'
 
 const Profile = ({ navigation }) => {
     return (
         <View style={Styles.container}>
             <View style={Styles.header}>
-                <Image source={require('../assets/users.jpeg')} style={Styles.user} />
+                <ProfilePicture
+                    isPicture={true}
+                    requirePicture={require('../assets/users.jpeg')}
+                    shape='circle'
+                    pictureResizeMode='cover'
+                    pictureStyle={{width:100,height:100}}
+                
+                />
+              
                 <Text style={Styles.headText}>Maria Fenyane</Text>
                 <TouchableOpacity onPress={() => navigation.navigate('editprofile')} style={Styles.edit}>
-                    <Text>Edit Profile</Text>
+                    <Text  style={{ color: '#C4C4C4' }}>Edit Profile</Text>
                 </TouchableOpacity >
 
 
@@ -102,7 +111,6 @@ const Styles = StyleSheet.create({
     history: {
         marginTop: '-15%',
         backgroundColor: '#EBE9E9',
-        // alignItems:'center',
         borderTopStartRadius: 40,
         borderTopEndRadius: 20,
 
