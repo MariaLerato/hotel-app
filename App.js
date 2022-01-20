@@ -42,12 +42,12 @@ const Menu = ()=>{
     return(
         <NavigationContainer>
             <Stack.Navigator initialRouteName={'bottomTab'} screenOptions={{headerShown:false}}>
-             {/* <Stack.Screen name={'SplashScreen'} component={SplashScreen} />
+             <Stack.Screen name={'SplashScreen'} component={SplashScreen} />
             <Stack.Screen name={'SignIn'} component={SignIn} />
              <Stack.Screen name={'WelcomeScreen'} component={WelcomeScreen} />
             <Stack.Screen name={'SignUp'} component={SignUp} />
             <Stack.Screen name={'resetpassword'} component={Reset} />
-            <Stack.Screen name={'passwordAlert'} component={Alert} />   */}
+            <Stack.Screen name={'passwordAlert'} component={Alert} />  
               <Stack.Screen name={'hotels'} component={Hotels}/> 
             <Stack.Screen name={'roomA'} component={RoomA}/>
             <Stack.Screen name={'other'} component={RoomB}/>

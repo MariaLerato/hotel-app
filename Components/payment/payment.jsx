@@ -38,7 +38,7 @@ const PaymentMethod = ({navigation,route})=>{
             <View style={Styles.header}>
                 <Icon name={'arrow-back'} color={'#C4C4C4'} style={{fontWeight:'700',marginTop:'20%'}} onPress={()=>navigation.goBack()} />
                 <Text style={Styles.textHead}>Payment Methods</Text>
-                <TouchableOpacity style={{borderColor:'#1C5248',borderWidth:2,borderRadius:40,alignItems:'center',justifyContent:'center',alignSelf:'flex-end',width:'15%',marginLeft:'4%'}} onPress={()=>navigation.navigate('paymentmethod')}><Text  style={{color:'#61B0A2',fontSize:15}} >Skip</Text></TouchableOpacity>
+               
             </View>
            <Formik
            initialValues={{

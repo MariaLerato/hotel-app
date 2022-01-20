@@ -15,11 +15,11 @@ const Search = ({ navigation, route }) => {
     const DisplayHotels = () => {
         return (
             <View>
-                <View style={{ display: 'flex', flexDirection: 'row',marginLeft:'-1%' }}>
+                <View style={{ display: 'flex', flexDirection: 'row',marginLeft:'1.5%' }}>
                     {SearchAlt.hotels.filter(data =>
                         data.province.includes(id)).map(action => (
                         <View style={{padding:'3%'}} >
-                                <ImageBackground source={action.image} style={{width:180,height:165,overflow:'hidden',borderRadius:20,borderWidth:1,borderColor:'white'}}>
+                                <ImageBackground source={action.image} style={{width:165,height:170,overflow:'hidden',borderRadius:20,borderWidth:1,borderColor:'white'}}>
                                 <TouchableOpacity  onPress={() => navigation.navigate(action.nav,{number:name})} style={styles.hotelname}>
                                 <Text style={styles.loca}>{action.location}</Text>
                                     <Text style={styles.number}>{action.location.length} Hotels</Text>
@@ -136,8 +136,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     Image: {
-        height: 60,
-        width: 60,
+        height: 75,
+        width: 75,
         borderRadius: 50,
         borderWidth: 3,
         borderColor: 'white',

@@ -23,7 +23,7 @@ const Confirm = ({navigation,route})=>{
             <Text style={Styles.textHead}>Booking</Text>
         </TouchableOpacity>
         <View style={{alignItems:'center',padding:'2%',borderRadius:20,paddingTop:'-2%'}}>
-            <ImageBackground source={main} style={{width:'100%',height:200,borderRadius:20,overflow:'hidden'}}>
+            <ImageBackground source={main} style={{width:'100%',height:220,borderRadius:20,overflow:'hidden'}}>
                 <View style={Styles.textContainer}>
                     <Text style={{color:'#C4C4C4',fontSize:20}}>JI, Makua -Johannesburg</Text>
                     <Text style={{color:'#1C5248',fontSize:22,fontWeight:'700'}}>{hotelname}, {name}</Text>
@@ -68,7 +68,7 @@ const Confirm = ({navigation,route})=>{
             <View style={{display:'flex',flexDirection:'row',width:'100%',justifyContent:'space-between',padding:'2%'}}>
                 <View>
                     <Text style={{color:'#C4C4C4',fontSize:18}}>Total Price</Text>
-                    <Text style={{ color:'#1C5248',fontWeight:'700',paddingLeft:'2%'}}>Nights, {number} Rooms</Text>
+                    <Text style={{ color:'#1C5248',fontWeight:'700',paddingLeft:'2%'}}> {number} Rooms</Text>
                 </View>
                 <View style={{marginTop:'7%'}} >
                    
@@ -112,9 +112,10 @@ const Styles = StyleSheet.create({
           height:90,
           alignSelf:'center',
           justifyContent:'center',
-          marginTop:'25%',
+          marginTop:'auto',
           padding:'4%',
-          borderRadius:20
+          borderRadius:20,
+          marginBottom:'2%'
       }
 })
 export default Confirm

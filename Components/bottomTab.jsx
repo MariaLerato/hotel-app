@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs'
 import Home from './home'
 import {Icon} from 'react-native-elements'
 import Search from './Search'
@@ -8,29 +8,32 @@ import Profile from './profile'
 import MyBookings from './BookingHisttory/myBookings'
 
 const TabNavigator=()=>{
-    const Tab = createBottomTabNavigator()
+    const Tab = createMaterialBottomTabNavigator()
     return(
         <Tab.Navigator  
-        screenOptions={{headerShown:false,tabBarShowLabel:false,tabBarActiveColor :'#1C5248',tabBarInactiveTintColor:'#B2B2B2',tabBarActiveBackgroundColor:'#f2fcfa',
-        }}>
+            barStyle={{backgroundColor:'white'}} activeColor='#1C5248' inactiveColor={'#d9d9d9'}
+      labeled={false}
+        >
             <Tab.Screen name="home" component={Home} 
             options={{ tabBarIcon:({color,size})=>(
-                <Icon name={'home'} type="font-awesome"   color={'#e8ebea'}  />
+                <Icon name={'home'} type="font-awesome"   color={color} />
+                
             ), }}
+            
             />
                <Tab.Screen name="Search" component={Search} 
             options={{ tabBarIcon:({color,size})=>(
-                <Icon name={'search'} type="font-awesome"  color={'#e8ebea'} />
+                <Icon name={'search'} type="font-awesome" color={color}  />
             ),}}
             />
                <Tab.Screen name="myBookings" component={MyBookings} 
             options={{ tabBarIcon:({color,size})=>(
-                <Icon name={'bookmark'} type="font-awesome" color={'#e8ebea'} />
+                <Icon name={'bookmark'} type="font-awesome" color={color}  />
             ),}}
             />
                 <Tab.Screen name="profile" component={Profile} 
             options={{ tabBarIcon:({color,size})=>(
-                <Icon name={'user'} type="font-awesome"  color={'#e8ebea'} />
+                <Icon name={'user'} type="font-awesome" color={color}  />
             ),}}
             />
         </Tab.Navigator>

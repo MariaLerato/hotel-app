@@ -2,18 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88c50cd3-5eb1-4d2a-aadf-b9012d654821" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/HotelMaps/location.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/HotelMaps/location.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/HotelMaps/map.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/HotelMaps/map.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/BookingHisttory/historyDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/BookingHisttory/historyDetails.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Search.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/bookingDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/bookingDetails.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/hotelLocation/Pretoria/Pretoria.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/hotelLocation/Pretoria/Pretoria.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/hotelLocation/Sandton/sandton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/hotelLocation/Sandton/sandton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/payment/finalpayment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/payment/finalpayment.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/bottomTab.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/bottomTab.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/editprofile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/editprofile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/home.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/payment/payment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/payment/payment.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/payment/paymentmethod.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/payment/paymentmethod.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/profile.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/room/detail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/room/detail.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/room/hotelrooms.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/room/hotelrooms.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/exercises.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/exercises.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +50,9 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="360" y="120" width="1200" height="800" key="AVDManager" timestamp="1642063566853">
+    <state x="5" y="45" width="1200" height="800" key="AVDManager" timestamp="1642660781636">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="360" y="120" width="1200" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1642063566853" />
+    <state x="5" y="45" width="1200" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1642660781636" />
   </component>
 </project>

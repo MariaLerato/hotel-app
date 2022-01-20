@@ -4,19 +4,20 @@ import { Icon } from 'react-native-elements';
 import { img } from './gallery/reusables';
 import ProfilePicture from 'react-native-profile-picture'
 
-const Profile = ({ navigation }) => {
+const Profile = ({ navigation ,route}) => {
     return (
         <View style={Styles.container}>
             <View style={Styles.header}>
                 <ProfilePicture
-                    isPicture={true}
-                    requirePicture={require('../assets/users.jpeg')}
+                  isPicture={false}
+                  user='Maria Fenyane'
                     shape='circle'
-                    pictureResizeMode='cover'
-                    pictureStyle={{width:100,height:100}}
+                   width={90}
+                   height={90}
+                   backgroundColor='#d9d9d9'
+                   userTextStyle={{fontWeight:'600',fontSize:25}}
                 
                 />
-              
                 <Text style={Styles.headText}>Maria Fenyane</Text>
                 <TouchableOpacity onPress={() => navigation.navigate('editprofile')} style={Styles.edit}>
                     <Text  style={{ color: '#C4C4C4' }}>Edit Profile</Text>

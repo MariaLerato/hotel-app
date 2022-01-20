@@ -60,7 +60,7 @@ const Detail = ({ route, navigation }) => {
                             number:number  ,
                             main:main ,
                             hotelname:name
-                        })} style={{backgroundColor:'#53B5A3',width:'98%',height:57,alignSelf:'center',justifyContent:'center',alignItems:'center',marginTop:'auto',borderRadius:10,marginBottom:'1%'}}>
+                        })} style={{backgroundColor:'#53B5A3',width:'92%',height:57,alignSelf:'center',justifyContent:'center',alignItems:'center',marginTop:'auto',borderRadius:10,marginBottom:'2%'}}>
                             <Text style={{color:'white',fontSize:24,fontWeight:'700'}}>Book Now</Text></TouchableOpacity>
                     </ImageBackground>
                 </TouchableOpacity> 

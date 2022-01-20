@@ -24,8 +24,6 @@ const Home = ({ AddBooking,navigation }) => {
         guests:Yup.string().required('Missing').max(2,'Too Long'),
         date:Yup.date().required('Missing'),
         checkOut:Yup.date().required('Missing')
-
-
     })
     const bookHotel=()=>{
         setBook([...book,{
@@ -38,7 +36,6 @@ const Home = ({ AddBooking,navigation }) => {
         }])
        
     }
-
     return (
         <>
             <View style={styles.image}>
