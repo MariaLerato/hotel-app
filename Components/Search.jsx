@@ -12,7 +12,6 @@ const Search = ({ navigation, route }) => {
     const status = route.params.status
     const dateIn = route.params.dateIn
     const dateOut = route.params.dateOut
-
     
     const DisplayHotels = () => {
         return (

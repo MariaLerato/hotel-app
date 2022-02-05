@@ -33,7 +33,7 @@ import hotelroom from './Components/room/hotelrooms';
 import Detail from './Components/room/detail';
 import PolokwaneHotels from './Components/hotelLocation/limpopo/limpopo';
 import VendaHotels from './Components/hotelLocation/limpopo/venda';
-import DetailsHistory from './Components/BookingHisttory/historyDetails';
+import DetailsHistory from './Components/BookingHisttory/historyDetails'; 
 import Limpoporooms from './Components/hotelLocation/limpopo/limpopoRooms';
 
 const Menu = ()=>{
