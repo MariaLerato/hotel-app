@@ -3,8 +3,9 @@ import {Image,Text,View,ScrollView,TouchableOpacity,StyleSheet,FlatList} from 'r
 import { Icon } from 'react-native-elements';
 import Info from '../../info';
 
-const PretoriaHotels = ({navigation})=>{
-   
+const PretoriaHotels = ({navigation,route})=>{
+    const number = route.params.number
+
     return(
         <>
         <View >
@@ -18,7 +19,13 @@ const PretoriaHotels = ({navigation})=>{
                 Info.pretoria.map(data=>
                     <>
                         <View style={{flex:1,display:'flex',flexDirection:'row',justifyContent:'space-between',padding:'2%'}} key={data.id}>
-                        <TouchableOpacity  onPress={()=>navigation.navigate('rooms')} >
+                        <TouchableOpacity  onPress={()=>navigation.navigate('hotelrooms',{
+                                  number:number,
+                                  main:data.image,
+                                  name:data.hotelname,
+                                  latitude:data.latitude,
+                                  longitude:data.longitude
+                        })} >
                             <Image
                             source={data.image}
                             style={{width:140,height:150,borderRadius:30,borderWidth:2,borderColor:'white' }}

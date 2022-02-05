@@ -4,7 +4,7 @@ import { Input, Icon } from 'react-native-elements'
 import * as Yup from 'yup'
 import { Formik } from 'formik';
 
-const SignIn = ({ navigation }) => {
+const LogIn = ({ navigation }) => {
     const [isVisible, setIsVisible] = useState(true)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -19,12 +19,9 @@ const SignIn = ({ navigation }) => {
             email: email,
             password: password
         }])
-        navigation.navigate('bottomTab')
+        console.log(email,password)
     }
-    const Validate = Yup.object({
-        email: Yup.string().required('Invalid'),
-        password: Yup.string().required('Invalid').min(4,'Too Short, Atleast 4 characters').max(8,'Too Long')
-    })
+  
     const PasswordView = () => {
         return (
             <TouchableOpacity
@@ -41,17 +38,7 @@ const SignIn = ({ navigation }) => {
     }
     return (
         <>
-            <Formik
-                initialValues={{
-                    email: '',
-                    password: ''
-                }}
-                validateOnMount={true}
-                validationSchema={Validate}
-                onSubmit={values => signIn(values.email, values.password)}
-            >
-                {({ errors, handleBlur, handleChange, handleSubmit, values, touched
-                }) => (
+
                     <View style={{flex:1}}>
                         <View style={styles.SignInContainer}>
                             <Text style={styles.WelcomeText}>Welcome!</Text>
@@ -61,35 +48,29 @@ const SignIn = ({ navigation }) => {
                             <Input
                                 placeholder=" Email Address"
                                 style={styles.input}
-                                value={values.email}
-                                onBlur={handleBlur('email')}
-                                onChangeText={handleChange('email')}
+                                value={email}
+                                onChangeText={(e)=>setEmail()}
                                 leftIcon={<Icon name="envelope-o" type="font-awesome" color='#1C5248' />}
                             />
-                            {errors.email && touched.email ? (
-                                <Text style={{ color: 'red', paddingLeft: '2%', fontSize: 12 }}>{errors.email}</Text>
-                            ) : null}
+  
                             <Text style={styles.title} >Password</Text>
                             <Input
                                 placeholder=" Your Password"
                                 style={styles.input}
-                                value={values.password}
-                                onChangeText={handleChange('password')}
-                                onBlur={handleBlur('password')}
+                                value={password}
+                                onChangeText={(e)=>setPassword(e)}
+                          
                                 leftIcon={<Icon name="lock" type="font-awesome" color='#1C5248' />}
                                 rightIcon={<PasswordView />}
                                 secureTextEntry={isVisible}
                             />
-                            {errors.password && touched.password ? (
-                                <Text style={{ color: 'red', paddingLeft: '2%', fontSize: 12 }}>{errors.password}</Text>
-                            ) : null}
+                           
                             <Text style={styles.password} onPress={() => navigation.navigate('resetpassword')}>Forgot Password?</Text>
                             <TouchableOpacity style={styles.touchableOpacity} onPress={handleSubmit}><Text style={styles.touchableText}>Sign In</Text></TouchableOpacity>
                             <TouchableOpacity style={styles.touchable} onPress={() => navigation.navigate('SignUp')}><Text style={styles.touchabletext}>Sign Up</Text></TouchableOpacity>
                         </View>
                     </View>
-                )}
-            </Formik>
+           
         </>
     )
 }
@@ -175,4 +156,4 @@ const styles = StyleSheet.create({
 
     }
 })
-export default SignIn
+export default LogIn

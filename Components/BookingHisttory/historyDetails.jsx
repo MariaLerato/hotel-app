@@ -9,7 +9,7 @@ const DetailsHistory = ({navigation,route}) =>{
         <>
         <View style={{flex:1,padding:'8%'}}>
             <TouchableOpacity style={{ alignContent:'flex-start',width:'100%',marginLeft:'-52%'}} >
-                <Icon name={'arrow-back'} color={'#C4C4C4'} onPress={() => navigation.goBack()} />
+                <Icon name={'arrow-back'} color={'#C4C4C4'} onPress={() =>navigation.goBack()} />
             </TouchableOpacity>
        
            <View style={{alignItems:'center',marginTop:'15%'}}>

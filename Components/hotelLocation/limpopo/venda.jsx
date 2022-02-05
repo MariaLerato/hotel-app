@@ -9,7 +9,7 @@ const VendaHotels = ({navigation,route})=>{
         <>
         <View >
             <View style={{width:'100%',display:'flex',flexDirection:'row',marginTop:'10%',alignItems:'center',marginLeft:'2%',padding:'2%'}}>
-               <TouchableOpacity onPress={()=>navigation.navigate('Search')} ><Icon name={'arrow-back'} size={25} color= {'#1C5248'}/></TouchableOpacity>
+               <TouchableOpacity onPress={()=>navigation.goBack()} ><Icon name={'arrow-back'} size={25} color= {'#1C5248'}/></TouchableOpacity>
                 <Text style={{fontSize:25,paddingLeft:"8%",color: '#1C5248'}}>Venda Hotels</Text>
             </View>
                <ScrollView>

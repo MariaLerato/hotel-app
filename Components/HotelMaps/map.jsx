@@ -3,16 +3,16 @@ import {View,Text,} from 'react-native'
 import MapView,{Marker,Callout} from 'react-native-maps'
 import CallOut from './box';
 import location from './location';
-import { img } from '../gallery/reusables';
 const Maps = ({data,route})=>{
-   
+   const {longitude,latitude,hotelname,price} = route.params
     return(
         <>
+        <Text>{hotelname}</Text>
             <MapView
                 initialRegion={
                     {
-                        latitude:-26.10499958,
-                        longitude:28.052499,
+                        latitude:latitude,
+                        longitude:longitude,
                         latitudeDelta:0.005,
                         longitudeDelta:0.005
                     }
@@ -23,13 +23,13 @@ const Maps = ({data,route})=>{
            >
                  <Marker 
                     coordinate={{
-                        latitude:location.sandLat,
-                        longitude:location.sandLon,
+                        latitude:-26.358055,
+                        longitude:27.398056,
                     }}
                     identifier='Hotel'
                 >
                     <Callout tooltip={true} >
-                        <CallOut data={data}/>
+                        <Text>{hotelname}</Text>
                     </Callout>
                 </Marker>
             </MapView>
@@ -38,23 +38,3 @@ const Maps = ({data,route})=>{
 }
 
 export default Maps
-// const [popular, setPopular] = useState([]);
-// const [near,setNear]=useState([])
-
-// const fullData = dummyData.hotels;
-
-// useEffect(() => {
-//   var data = [];
-//   var near=[]
-//   const getPopular = () => {
-//     data = fullData.filter((hotel) => hotel.rating > 4);
-//   };
-//   const getNear=()=>{
-//       near=fullData.filter((hotel) => hotel.address ==='polokwane');
-//   }
-//   getPopular();
-//   getNear()
-//   setPopular(data);
-//   setNear(near)
-// }, []);
-// Latitude: -26° 06' 18.00" S Longitude: 28° 03' 9.00" E

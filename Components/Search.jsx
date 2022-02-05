@@ -3,39 +3,38 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground, Scrol
 import Info from './info'
 import { Icon,Card } from 'react-native-elements'
 import SearchAlt from './searchAlt';
+import ProfilePicture from 'react-native-profile-picture'
 import { navbars } from './gallery/reusables';
 
 
 const Search = ({ navigation, route }) => {
-    const id = route.params.id
-    const name = route.params.name
-    const status = route.params.status
-    const dateIn = route.params.dateIn
-    const dateOut = route.params.dateOut
+   
+    const {id,name,status,dateIn,dateOut} = route.params
+
     
     const DisplayHotels = () => {
         return (
             <View>
-                <View style={{ display: 'flex', flexDirection: 'row',marginLeft:'-1%' }}>
+                <View style={{ display: 'flex', flexDirection: 'row',marginLeft:'1.5%' }}>
                     {SearchAlt.hotels.filter(data =>
                         data.province.includes(id)).map(action => (
-                           <Card key={action.id} containerStyle={{borderRadius:10,padding:'1.5%',width:'42%'}}>
-                               <Card.Image source={action.image} style={{width:'100%',height:165}}>
-                                    <TouchableOpacity onPress={() => navigation.navigate(action.nav,{number:name})} style={styles.hotelname}>
-                                        <Text style={styles.loca}>{action.location}</Text>
-                                        <Text style={styles.number}>{action.location.length} Hotels</Text>
-                                    </TouchableOpacity>
-                                
-
-                               </Card.Image>
-                           </Card>
+                        <View style={{padding:'3%'}} >
+                                <ImageBackground source={action.image} style={{width:165,height:170,overflow:'hidden',borderRadius:20,borderWidth:1,borderColor:'white'}}>
+                                <TouchableOpacity  onPress={() => navigation.navigate(action.nav,{number:name})} style={styles.hotelname}>
+                                <Text style={styles.loca}>{action.location}</Text>
+                                    <Text style={styles.number}>{action.location.length} Hotels</Text>
+                                </TouchableOpacity>
+                            </ImageBackground>
+                        </View>
+                           
                         ))}
                 </View>
             </View>
         )
     }
+  
     return (
-        <>
+        <View style={{flex:1}}>
             <View style={styles.HeaderContainer}>
                 <View>
                     {
@@ -43,16 +42,23 @@ const Search = ({ navigation, route }) => {
                             <View key={action.id}>
 
                                 <View style={styles.ImageContainer}>
-                                    <Image source={action.img} style={styles.Image} />
+                                <ProfilePicture
+                    isPicture={true}
+                    requirePicture={require('../assets/users.jpeg')}
+                    shape='circle'
+                    pictureResizeMode='cover'
+                    pictureStyle={styles.Image}
+                
+                />
                                     <View style={styles.name}>
                                         <Text style={styles.profilename}>
                                             {action.name} {action.surname}
                                         </Text>
                                         <Text style={styles.find}>Find The Best Hotel</Text>
                                     </View>
-                                    <View style={styles.alarm}>
+                                    <TouchableOpacity style={styles.alarm} onPress={()=>navigation.navigate('notification')}>
                                         <Icon name={'bell'} type="font-awesome" size={18} color='white' />
-                                    </View>
+                                    </TouchableOpacity>
                                 </View>
                             </View>
                         )
@@ -119,7 +125,7 @@ const Search = ({ navigation, route }) => {
             </View>
         </ScrollView>
             </View >
-        </>
+        </View>
     )
 }
 const styles = StyleSheet.create({
@@ -130,8 +136,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     Image: {
-        height: 90,
-        width: 90,
+        height: 75,
+        width: 75,
         borderRadius: 50,
         borderWidth: 3,
         borderColor: 'white',
@@ -140,18 +146,17 @@ const styles = StyleSheet.create({
     ImageContainer: {
         display: 'flex',
         flexDirection: 'row',
-        marginTop: '-30%'
+        marginTop: '-25%'
 
     },
     name: {
         color: 'white',
-        marginTop: '4%',
-        padding: '2%'
+        marginTop: '3%',
+        padding: '2%',
     },
     profilename: {
         color: 'white',
-        fontSize: 16
-
+        fontSize: 16,marginTop:'-6%'
     },
     find: {
         color: 'white',
@@ -159,8 +164,8 @@ const styles = StyleSheet.create({
         fontWeight: '700'
     },
     alarm: {
-        marginTop: '12%',
-        marginLeft: '10%'
+        marginTop: '5%',
+        marginLeft: '20%'
 
     },
     container: {
@@ -169,7 +174,7 @@ const styles = StyleSheet.create({
 
     },
     destinationContainer: {
-        marginTop: '-35%',
+        marginTop: '-40%',
         backgroundColor: 'white',
         margin: '5%',
         borderRadius: 10

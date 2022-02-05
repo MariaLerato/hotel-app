@@ -5,21 +5,16 @@ import { RadioButton } from 'react-native-paper';
 
 const Method = ({navigation,route}) => {
     const [checked, setChecked] = useState('first')
-    const number = route.params.number
-    const name = route.params.name
-    const date = route.params.date
-    const cvv = route.params.cvv
-    const price = route.params.price
-    const Room = route.params.Room
-    const guests = route.params.guests
 
+  
+    const {hotelname,number,date,name,cvv,price,Room,guests} = route.params
     const PaymentCard = ()=>{
         return(
             <View style={{ width: '95%',borderRadius: 15,backgroundColor:'#1C5248',height:180,margin:'auto',padding:'auto',alignSelf:'center' }}>
                 <View style={{display:'flex',flexDirection:'row',justifyContent:'space-between',marginTop:'2%'}}>
                     <View style={{color:'white',padding:'4%',fontSize:25}}>
                         <Text style={{color:'white',fontSize:25}}>{name}</Text>
-                        <Text  style={{color:'white',fontSize:17,paddingTop:'2%',paddingLeft:'1%',fontWeight:'100'}} >{number}</Text>
+                        <Text  style={{color:'#C4C4C4',fontSize:17,paddingTop:'2%',paddingLeft:'4%',fontWeight:'100',}} >{number}</Text>
                     </View>
                     <View style={{display:'flex',flexDirection:'row',marginTop:'8%',marginRight:'4%'}}>
                         <View style={{borderRadius:40,backgroundColor:'#5190f5',width:40,height:40,marginRight:'-14%'}}></View>
@@ -86,7 +81,8 @@ const Method = ({navigation,route}) => {
                     cvv:cvv,
                     price:price,
                     Room:Room,
-                    guests:guests
+                    guests:guests,
+                    hotelname:hotelname
                 })}><Text style={{color:'#61B0A2',fontSize:24}}>Save</Text></TouchableOpacity>
             </View>
         </View>
