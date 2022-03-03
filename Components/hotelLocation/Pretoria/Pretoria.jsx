@@ -1,53 +1,109 @@
-import React from 'react';
-import {Image,Text,View,ScrollView,TouchableOpacity,StyleSheet,FlatList} from 'react-native'
-import { Icon } from 'react-native-elements';
-import Info from '../../info';
+import React,{useEffect,useState} from "react";
+import {
+  Image,
+  Text,
+  View,
+  ScrollView,
+  TouchableOpacity,
+  StyleSheet,
+  FlatList,
+} from "react-native";
+import { Icon,ListItem ,Avatar} from "react-native-elements";
+import BackendInfo from '../../service/service'
 
-const PretoriaHotels = ({navigation,route})=>{
-    const number = route.params.number
 
-    return(
-        <>
-        <View >
-            <View style={{width:'100%',display:'flex',flexDirection:'row',marginTop:'10%',alignItems:'center',marginLeft:'2%',padding:'2%'}}>
-               <TouchableOpacity onPress={()=>navigation.navigate('Search')} ><Icon name={'arrow-back'} size={25} color= {'#1C5248'}/></TouchableOpacity>
-                <Text style={{fontSize:25,paddingLeft:"8%",color: '#1C5248'}}>Pretoria Hotels</Text>
-            </View>
-               <ScrollView>
-               <View>
-            {
-                Info.pretoria.map(data=>
-                    <>
-                        <View style={{flex:1,display:'flex',flexDirection:'row',justifyContent:'space-between',padding:'2%'}} key={data.id}>
-                        <TouchableOpacity  onPress={()=>navigation.navigate('hotelrooms',{
-                                  number:number,
-                                  main:data.image,
-                                  name:data.hotelname,
-                                  latitude:data.latitude,
-                                  longitude:data.longitude
-                        })} >
-                            <Image
-                            source={data.image}
-                            style={{width:140,height:150,borderRadius:30,borderWidth:2,borderColor:'white' }}
-                            ></Image>    
-                            </TouchableOpacity> 
-                            <View>
-                                <Text style={{marginTop:'1%',fontSize:20,color: '#1C5248',fontWeight:'700',paddingLeft:'1%'}}>
-                                    {data.hotelname}
-                                </Text>
-                                <Text style={{width:'30%',paddingLeft:'1%'}}>{data.description}</Text>
-                                <TouchableOpacity  onPress={()=>navigation.navigate('review')}>
-                                    <Text style={{ color:'#F24C04',fontSize:18,paddingLeft:'1%'}}>{data.review}</Text>
-                                </TouchableOpacity>
-                            </View>
-                                   
-                        </View>
-                    </>)
-            }
+const PretoriaHotels = ({ navigation, route }) => {
+  const [hotels, setHotels] = useState([]);
+  const {roomNo, dateIn, dateOut,guestNo,location,days,city,hotelId} = route.params;
+  const [isLoaded,setIsLoaded] = useState(false)
+
+  const retrieveData = () => {
+    BackendInfo.getAll()
+      .then((res) => {
+        console.log('location',res.data);
+        setIsLoaded(true);
+        setHotels(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+  useEffect(() => {
+    retrieveData();
+
+  }, []);
+  console.log('days',days)
+
+
+  let searchString = city;
+  const searchData = hotels.filter((data) =>
+    data.city.includes(searchString)
+  );
+  return (
+    <>
+      <View style={{flex:1, backgroundColor:'white',}}>
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            marginTop: "10%",
+            alignItems: "center",
+          }}
+        >
+          <TouchableOpacity style={{marginLeft:'3%'}} onPress={() => navigation.goBack()}>
+            <Icon name={"arrow-back"} size={25} color={"#1C5248"} />
+          </TouchableOpacity>
+          <Text style={{ fontSize: 25, paddingLeft: "8%", color: "#1C5248" }}>
+            {city} Hotels
+          </Text>
         </View>
-               </ScrollView>
-        </View>
-        </>
-    )
-}
-export default PretoriaHotels
+        <ScrollView>
+          {
+            !isLoaded?(
+              <Text style={{padding:'2%'}}>Please Wait While We Load Your Hotels</Text>
+            ):(
+              <>{
+                searchData.map(data=>
+                  <View key={data._id}>
+                 <ListItem key={data._id} >
+                      <Avatar size={'xlarge'} source={{ uri: data.image.image }}  onPress={() =>
+                        navigation.navigate("hotelrooms", {
+                          roomNo:roomNo,
+                           main:data.image.image,
+                           name:data.name,
+                           dateIn:dateIn,
+                           dateOut:dateOut,
+                           guestNo:guestNo,
+                           location:location,
+                           email:data.email,
+                           days:days,
+                           id:data.hotel_id,
+                           hotelId:hotelId
+                     
+                        })}></Avatar>
+                   
+                   <ListItem.Content  >
+                      <ListItem.Title style={{ color: "#1C5248",fontSize:20}}>{data.name}</ListItem.Title>
+                      <ListItem.Subtitle style={{fontSize:10}}>{data.text}</ListItem.Subtitle>
+                      <ListItem.Subtitle style={{color:'#FAA455'}}>Hotel Reviews</ListItem.Subtitle>
+                    </ListItem.Content>
+                  
+                
+                  </ListItem>
+              </View>
+                  
+                  )
+              }
+              </>
+              
+            )
+          }
+        
+         
+         
+        </ScrollView>
+      </View>
+    </>
+  );
+};
+export default PretoriaHotels;
